@@ -1,0 +1,9 @@
+{
+    "list": [
+        { "name": "Melaye", "amount": "331.01", "color": "bg-blue-600", "percentage": "100%" },
+        { "name": "Ana Esquivel", "amount": "225.74", "color": "bg-blue-200", "percentage": "70%" },
+        { "name": "Nefer Serna", "amount": "175.26", "color": "bg-yellow-600", "percentage": "55%" },
+        { "name": "Maria", "amount": "134.32", "color": "bg-emerald-200", "percentage": "40%" },
+        { "name": "EPOS OLO", "amount": "25.98", "color": "bg-yellow-400", "percentage": "10%" }
+    ]
+}

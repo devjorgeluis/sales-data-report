@@ -1,0 +1,12 @@
+{
+    "list": [
+        { "name": "Domestic Bottle", "price": "155.48", "color": "bg-blue-500", "percentage": "100%" },
+        { "name": "Imported Bottle", "price": "91.77", "color": "bg-blue-200", "percentage": "70%" },
+        { "name": "Wet Burrito", "price": "87.92", "color": "bg-emerald-500", "percentage": "65%" },
+        { "name": "C21 One Cheese Enchilada", "price": "83.94", "color": "bg-emerald-200", "percentage": "60%" },
+        { "name": "7 Mares", "price": "71.96", "color": "bg-yellow-300", "percentage": "55%" },
+        { "name": "Draft Beer", "price": "68.88", "color": "bg-yellow-600", "percentage": "50%" },
+        { "name": "Open Food", "price": "66.95", "color": "bg-red-600", "percentage": "45%" },
+        { "name": "Michelada", "price": "55.93", "color": "bg-red-200", "percentage": "40%" }
+    ]
+}

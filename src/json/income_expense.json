@@ -1,0 +1,1741 @@
+{
+    "list": [
+        {
+            "date": "martes, 9 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$5,034.00",
+            "expense": "",
+            "balance": "$5,034.00"
+        },
+        {
+            "date": "martes, 9 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Oxxo Agua Mineral ",
+            "income": "",
+            "expense": "$87.00",
+            "balance": "$4,947.00"
+        },
+        {
+            "date": "martes, 9 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$323.49",
+            "balance": "$4,623.51"
+        },
+        {
+            "date": "martes, 9 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$867.60",
+            "balance": "$3,755.91"
+        },
+        {
+            "date": "martes, 9 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja",
+            "income": "$2,620.00",
+            "expense": "",
+            "balance": "$6,375.91"
+        },
+        {
+            "date": "martes, 9 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja",
+            "income": "",
+            "expense": "$2,620.00",
+            "balance": "$3,755.91"
+        },
+        {
+            "date": "martes, 9 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Faltante-Sobrante",
+            "income": "$314.09",
+            "expense": "",
+            "balance": "$4,070.00"
+        },
+        {
+            "date": "mi\u00e9rcoles, 10 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja",
+            "income": "$2,620.00",
+            "expense": "",
+            "balance": "$6,690.00"
+        },
+        {
+            "date": "mi\u00e9rcoles, 10 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$6,015.00",
+            "expense": "",
+            "balance": "$12,705.00"
+        },
+        {
+            "date": "mi\u00e9rcoles, 10 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$648.22",
+            "balance": "$12,056.78"
+        },
+        {
+            "date": "mi\u00e9rcoles, 10 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$1,245.95",
+            "balance": "$10,810.83"
+        },
+        {
+            "date": "mi\u00e9rcoles, 10 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Faltante-Sobrante",
+            "income": "$279.17",
+            "expense": "",
+            "balance": "$11,090.00"
+        },
+        {
+            "date": "mi\u00e9rcoles, 10 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja",
+            "income": "",
+            "expense": "$2,620.00",
+            "balance": "$8,470.00"
+        },
+        {
+            "date": "jueves, 11 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja",
+            "income": "$2,620.00",
+            "expense": "",
+            "balance": "$11,090.00"
+        },
+        {
+            "date": "jueves, 11 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Quesos y quesos pechuga de pollo",
+            "income": "",
+            "expense": "$827.76",
+            "balance": "$10,262.24"
+        },
+        {
+            "date": "jueves, 11 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Casa Ley 6 pz vino blanco ",
+            "income": "",
+            "expense": "$537.00",
+            "balance": "$9,725.24"
+        },
+        {
+            "date": "jueves, 11 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Sam's cocina champi\u00f1on, leche, mostaza",
+            "income": "",
+            "expense": "$2,229.89",
+            "balance": "$7,495.35"
+        },
+        {
+            "date": "jueves, 11 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Sam's barra 2k de fresa",
+            "income": "",
+            "expense": "$284.00",
+            "balance": "$7,211.35"
+        },
+        {
+            "date": "jueves, 11 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$6,592.57",
+            "expense": "",
+            "balance": "$13,803.92"
+        },
+        {
+            "date": "jueves, 11 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$558.30",
+            "balance": "$13,245.62"
+        },
+        {
+            "date": "jueves, 11 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$1,629.60",
+            "balance": "$11,616.02"
+        },
+        {
+            "date": "jueves, 11 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Servicio de piso propina pendiente",
+            "income": "",
+            "expense": "$132.00",
+            "balance": "$11,484.02"
+        },
+        {
+            "date": "jueves, 11 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Faltante-Sobrante",
+            "income": "$779.33",
+            "expense": "",
+            "balance": "$12,263.35"
+        },
+        {
+            "date": "jueves, 11 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja al corte",
+            "income": "",
+            "expense": "$2,620.00",
+            "balance": "$9,643.35"
+        },
+        {
+            "date": "viernes, 12 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja apertura",
+            "income": "$2,620.00",
+            "expense": "",
+            "balance": "$12,263.35"
+        },
+        {
+            "date": "viernes, 12 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Hielo barra",
+            "income": "",
+            "expense": "$800.00",
+            "balance": "$11,463.35"
+        },
+        {
+            "date": "viernes, 12 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$15,586.00",
+            "expense": "",
+            "balance": "$27,049.35"
+        },
+        {
+            "date": "viernes, 12 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja al corte",
+            "income": "",
+            "expense": "$2,600.00",
+            "balance": "$24,449.35"
+        },
+        {
+            "date": "viernes, 12 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Oxxo Hielo",
+            "income": "",
+            "expense": "$237.00",
+            "balance": "$24,212.35"
+        },
+        {
+            "date": "viernes, 12 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Bodegorama Botella Bacardi",
+            "income": "",
+            "expense": "$224.00",
+            "balance": "$23,988.35"
+        },
+        {
+            "date": "viernes, 12 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$914.88",
+            "balance": "$23,073.47"
+        },
+        {
+            "date": "viernes, 12 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$2,621.96",
+            "balance": "$20,451.51"
+        },
+        {
+            "date": "viernes, 12 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Faltante-Sobrante",
+            "income": "$219.84",
+            "expense": "",
+            "balance": "$20,671.35"
+        },
+        {
+            "date": "s\u00e1bado, 13 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$23,271.35"
+        },
+        {
+            "date": "s\u00e1bado, 13 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$7,476.10",
+            "expense": "",
+            "balance": "$30,747.45"
+        },
+        {
+            "date": "s\u00e1bado, 13 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$2,308.53",
+            "balance": "$28,438.92"
+        },
+        {
+            "date": "s\u00e1bado, 13 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$2,740.77",
+            "balance": "$25,698.15"
+        },
+        {
+            "date": "s\u00e1bado, 13 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Castores envio italiano",
+            "income": "",
+            "expense": "$1,500.00",
+            "balance": "$24,198.15"
+        },
+        {
+            "date": "s\u00e1bado, 13 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Oxxo 2 esponjas loza",
+            "income": "",
+            "expense": "$82.00",
+            "balance": "$24,116.15"
+        },
+        {
+            "date": "s\u00e1bado, 13 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Faltante-Sobrante",
+            "income": "",
+            "expense": "$5.20",
+            "balance": "$24,110.95"
+        },
+        {
+            "date": "s\u00e1bado, 13 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja al corte",
+            "income": "",
+            "expense": "$2,600.00",
+            "balance": "$21,510.95"
+        },
+        {
+            "date": "domingo, 14 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$24,110.95"
+        },
+        {
+            "date": "domingo, 14 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$1,475.00",
+            "expense": "",
+            "balance": "$25,585.95"
+        },
+        {
+            "date": "domingo, 14 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$335.10",
+            "balance": "$25,250.85"
+        },
+        {
+            "date": "domingo, 14 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$1,045.80",
+            "balance": "$24,205.05"
+        },
+        {
+            "date": "domingo, 14 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Farmacia del ahorro",
+            "income": "",
+            "expense": "$53.00",
+            "balance": "$24,152.05"
+        },
+        {
+            "date": "domingo, 14 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Faltante-Sobrante",
+            "income": "$116.90",
+            "expense": "",
+            "balance": "$24,268.95"
+        },
+        {
+            "date": "domingo, 14 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja al corte",
+            "income": "",
+            "expense": "$2,600.00",
+            "balance": "$21,668.95"
+        },
+        {
+            "date": "lunes, 15 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$24,268.95"
+        },
+        {
+            "date": "lunes, 15 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$2,619.00",
+            "expense": "",
+            "balance": "$26,887.95"
+        },
+        {
+            "date": "lunes, 15 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$1,026.20",
+            "balance": "$25,861.75"
+        },
+        {
+            "date": "lunes, 15 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$1,078.65",
+            "balance": "$24,783.10"
+        },
+        {
+            "date": "lunes, 15 de julio de 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de caja al corte",
+            "income": "",
+            "expense": "$2,600.00",
+            "balance": "$22,183.10"
+        },
+        {
+            "date": "Martes. 16 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$24,783.10"
+        },
+        {
+            "date": "Martes. 16 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$7,983.00",
+            "expense": "",
+            "balance": "$32,766.10"
+        },
+        {
+            "date": "Martes. 16 de julio del 2025",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Aportacion socios terraza liquidacion herreria",
+            "income": "",
+            "expense": "$14,220.00",
+            "balance": "$18,546.10"
+        },
+        {
+            "date": "Martes. 16 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Plomero",
+            "income": "",
+            "expense": "$900.00",
+            "balance": "$17,646.10"
+        },
+        {
+            "date": "Martes. 16 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propina Ruth",
+            "income": "",
+            "expense": "$312.78",
+            "balance": "$17,333.32"
+        },
+        {
+            "date": "Martes. 16 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propina Demian",
+            "income": "",
+            "expense": "$676.20",
+            "balance": "$16,657.12"
+        },
+        {
+            "date": "Martes. 16 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propina Alan moche ",
+            "income": "$260.00",
+            "expense": "",
+            "balance": "$16,917.12"
+        },
+        {
+            "date": "Martes. 16 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propina Pedro",
+            "income": "",
+            "expense": "$132.90",
+            "balance": "$16,784.22"
+        },
+        {
+            "date": "Martes. 16 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propina Julio",
+            "income": "",
+            "expense": "$165.70",
+            "balance": "$16,618.52"
+        },
+        {
+            "date": "Martes. 16 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$1,260.22",
+            "balance": "$15,358.30"
+        },
+        {
+            "date": "Martes. 16 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de caja al corte",
+            "income": "",
+            "expense": "$2,600.00",
+            "balance": "$12,758.30"
+        },
+        {
+            "date": "Miercoles 17 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$15,358.30"
+        },
+        {
+            "date": "Miercoles 17 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$3,500.00",
+            "expense": "",
+            "balance": "$18,858.30"
+        },
+        {
+            "date": "Miercoles 17 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$1,628.96",
+            "balance": "$17,229.34"
+        },
+        {
+            "date": "Miercoles 17 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$1,390.80",
+            "balance": "$15,838.54"
+        },
+        {
+            "date": "Miercoles 17 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de caja al corte",
+            "income": "",
+            "expense": "$2,600.00",
+            "balance": "$13,238.54"
+        },
+        {
+            "date": "Jueves 18 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$15,838.54"
+        },
+        {
+            "date": "Jueves 18 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$7,600.00",
+            "expense": "",
+            "balance": "$23,438.54"
+        },
+        {
+            "date": "Jueves 18 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Pasteles cortesia invitados",
+            "income": "",
+            "expense": "$1,005.00",
+            "balance": "$22,433.54"
+        },
+        {
+            "date": "Jueves 18 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Hielo oxxo",
+            "income": "",
+            "expense": "$118.50",
+            "balance": "$22,315.04"
+        },
+        {
+            "date": "Jueves 18 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$1,043.38",
+            "balance": "$21,271.66"
+        },
+        {
+            "date": "Jueves 18 de julio del 2025",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Deposito moche meseros",
+            "income": "$332.75",
+            "expense": "",
+            "balance": "$21,604.41"
+        },
+        {
+            "date": "Jueves 18 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$1,900.00",
+            "balance": "$19,704.41"
+        },
+        {
+            "date": "Jueves 18 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de caja al corte",
+            "income": "",
+            "expense": "$2,600.00",
+            "balance": "$17,104.41"
+        },
+        {
+            "date": "Viernes 19 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$19,704.41"
+        },
+        {
+            "date": "Viernes 19 de julio del 2025",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$12,605.00",
+            "expense": "",
+            "balance": "$32,309.41"
+        },
+        {
+            "date": "Viernes 19 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Hielo hieleria alpinos",
+            "income": "",
+            "expense": "$960.00",
+            "balance": "$31,349.41"
+        },
+        {
+            "date": "Viernes 19 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Laptop ordenes de compra servicio",
+            "income": "",
+            "expense": "$3,800.00",
+            "balance": "$27,549.41"
+        },
+        {
+            "date": "Viernes 19 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Reparacion de motor extractor cocina",
+            "income": "",
+            "expense": "$2,015.00",
+            "balance": "$25,534.41"
+        },
+        {
+            "date": "Viernes 19 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Reparacion de horno coriat",
+            "income": "",
+            "expense": "$900.00",
+            "balance": "$24,634.41"
+        },
+        {
+            "date": "Viernes 19 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Popinas pagadas",
+            "income": "",
+            "expense": "$2,596.92",
+            "balance": "$22,037.49"
+        },
+        {
+            "date": "Viernes 19 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Deposito moche meseros",
+            "income": "$174.00",
+            "expense": "",
+            "balance": "$22,211.49"
+        },
+        {
+            "date": "Viernes 19 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$3,450.00",
+            "balance": "$18,761.49"
+        },
+        {
+            "date": "Viernes 19 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de caja al corte",
+            "income": "",
+            "expense": "$2,600.00",
+            "balance": "$16,161.49"
+        },
+        {
+            "date": "Sabado 20 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$18,761.49"
+        },
+        {
+            "date": "Sabado 20 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$15,402.00",
+            "expense": "",
+            "balance": "$34,163.49"
+        },
+        {
+            "date": "Sabado 20 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Walmart alcohol, cinta para produccion",
+            "income": "",
+            "expense": "$701.00",
+            "balance": "$33,462.49"
+        },
+        {
+            "date": "Sabado 20 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Reparacion de dren horno cocina",
+            "income": "",
+            "expense": "$2,800.00",
+            "balance": "$30,662.49"
+        },
+        {
+            "date": "Sabado 20 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Reparacion enchufe camara terraza",
+            "income": "",
+            "expense": "$615.00",
+            "balance": "$30,047.49"
+        },
+        {
+            "date": "Sabado 20 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Repacacion de fuga de horno",
+            "income": "",
+            "expense": "$900.00",
+            "balance": "$29,147.49"
+        },
+        {
+            "date": "Sabado 20 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Pasteles cortesia invitados",
+            "income": "",
+            "expense": "$360.00",
+            "balance": "$28,787.49"
+        },
+        {
+            "date": "Sabado 20 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$2,193.48",
+            "balance": "$26,594.01"
+        },
+        {
+            "date": "Sabado 20 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$1,052.86",
+            "balance": "$25,541.15"
+        },
+        {
+            "date": "Sabado 20 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Deposito moche meseros",
+            "income": "$350.02",
+            "expense": "",
+            "balance": "$25,891.17"
+        },
+        {
+            "date": "Sabado 20 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Refrescos para barra oxxo",
+            "income": "",
+            "expense": "$410.00",
+            "balance": "$25,481.17"
+        },
+        {
+            "date": "Sabado 20 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Se le deb\u00eda a sebastian para feria",
+            "income": "",
+            "expense": "$20.00",
+            "balance": "$25,461.17"
+        },
+        {
+            "date": "Sabado 20 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de caja al corte",
+            "income": "",
+            "expense": "$2,600.00",
+            "balance": "$22,861.17"
+        },
+        {
+            "date": "Domingo 21 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$25,461.17"
+        },
+        {
+            "date": "Domingo 21 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$435.00",
+            "expense": "",
+            "balance": "$25,896.17"
+        },
+        {
+            "date": "Domingo 21 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Queso parmesano ley",
+            "income": "",
+            "expense": "$862.50",
+            "balance": "$25,033.67"
+        },
+        {
+            "date": "Domingo 21 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "alabaca, hinojo, limon real y romero ley",
+            "income": "",
+            "expense": "$220.87",
+            "balance": "$24,812.80"
+        },
+        {
+            "date": "Domingo 21 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Pluspan zazueta",
+            "income": "",
+            "expense": "$145.50",
+            "balance": "$24,667.30"
+        },
+        {
+            "date": "Domingo 21 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Compras cocina Costco",
+            "income": "",
+            "expense": "$3,083.00",
+            "balance": "$21,584.30"
+        },
+        {
+            "date": "Domingo 21 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "vitafilm",
+            "income": "",
+            "expense": "$369.00",
+            "balance": "$21,215.30"
+        },
+        {
+            "date": "Domingo 21 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "huevo, servilletas, ferrero, mantequilla sams",
+            "income": "",
+            "expense": "$2,322.99",
+            "balance": "$18,892.31"
+        },
+        {
+            "date": "Domingo 21 de julio del 2025",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "tomate y dulce de leche",
+            "income": "",
+            "expense": "$490.80",
+            "balance": "$18,401.51"
+        },
+        {
+            "date": "Domingo 21 de julio del 2026",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Gasolina",
+            "income": "",
+            "expense": "$200.00",
+            "balance": "$18,201.51"
+        },
+        {
+            "date": "Domingo 21 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$948.00",
+            "balance": "$17,253.51"
+        },
+        {
+            "date": "Domingo 21 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$1,129.55",
+            "balance": "$16,123.96"
+        },
+        {
+            "date": "Domingo 21 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Deposito moche meseros",
+            "income": "$242.10",
+            "expense": "",
+            "balance": "$16,366.06"
+        },
+        {
+            "date": "Domingo 21 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de caja al corte",
+            "income": "",
+            "expense": "$1,200.00",
+            "balance": "$15,166.06"
+        },
+        {
+            "date": "Lunes 22 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$17,766.06"
+        },
+        {
+            "date": "Lunes 22 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Reposision fondo de caja",
+            "income": "",
+            "expense": "$1,400.00",
+            "balance": "$16,366.06"
+        },
+        {
+            "date": "Lunes 22 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$2,690.00",
+            "expense": "",
+            "balance": "$19,056.06"
+        },
+        {
+            "date": "Lunes 22 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Clean chef articulos de limpieza",
+            "income": "",
+            "expense": "$4,240.00",
+            "balance": "$14,816.06"
+        },
+        {
+            "date": "Lunes 22 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Pasteles cortesia invitados",
+            "income": "",
+            "expense": "$600.00",
+            "balance": "$14,216.06"
+        },
+        {
+            "date": "Lunes 22 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$772.30",
+            "balance": "$13,443.76"
+        },
+        {
+            "date": "Lunes 22 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$757.10",
+            "balance": "$12,686.66"
+        },
+        {
+            "date": "Lunes 22 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de caja al corte",
+            "income": "",
+            "expense": "$2,600.00",
+            "balance": "$10,086.66"
+        },
+        {
+            "date": "Martes 23 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de Caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$12,686.66"
+        },
+        {
+            "date": "Martes 23 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$1,246.00",
+            "expense": "",
+            "balance": "$13,932.66"
+        },
+        {
+            "date": "Martes 23 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$2,811.45",
+            "balance": "$11,121.21"
+        },
+        {
+            "date": "Martes 23 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$1,075.05",
+            "balance": "$10,046.16"
+        },
+        {
+            "date": "Martes 23 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de caja al corte",
+            "income": "",
+            "expense": "$1,175.00",
+            "balance": "$8,871.16"
+        },
+        {
+            "date": "Miercoles 24 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$11,471.16"
+        },
+        {
+            "date": "Miercoles 24 de julio del 2025",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$3,901.00",
+            "expense": "",
+            "balance": "$15,372.16"
+        },
+        {
+            "date": "Miercoles 24 de julio del 2026",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Deposito moche meseros",
+            "income": "$37.80",
+            "expense": "",
+            "balance": "$15,409.96"
+        },
+        {
+            "date": "Miercoles 24 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Cocacola pedido barra",
+            "income": "",
+            "expense": "$2,508.00",
+            "balance": "$12,901.96"
+        },
+        {
+            "date": "Miercoles 24 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Pedido barra hielo ",
+            "income": "",
+            "expense": "$960.00",
+            "balance": "$11,941.96"
+        },
+        {
+            "date": "Miercoles 24 de julio del 2025",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Harina fuerza sanzon cocina ",
+            "income": "",
+            "expense": "$440.00",
+            "balance": "$11,501.96"
+        },
+        {
+            "date": "Miercoles 24 de julio del 2026",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Gasolina ",
+            "income": "",
+            "expense": "$200.00",
+            "balance": "$11,301.96"
+        },
+        {
+            "date": "Miercoles 24 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$712.86",
+            "balance": "$10,589.10"
+        },
+        {
+            "date": "Miercoles 24 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$479.94",
+            "balance": "$10,109.16"
+        },
+        {
+            "date": "Miercoles 24 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de caja al corte",
+            "income": "",
+            "expense": "$2,600.00",
+            "balance": "$7,509.16"
+        },
+        {
+            "date": "Jueves 25 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$10,109.16"
+        },
+        {
+            "date": "Jueves 25 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$3,530.00",
+            "expense": "",
+            "balance": "$13,639.16"
+        },
+        {
+            "date": "Jueves 25 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Alcaparras y queso descremado",
+            "income": "",
+            "expense": "$213.70",
+            "balance": "$13,425.46"
+        },
+        {
+            "date": "Jueves 25 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Articulos de limpieza piso ",
+            "income": "",
+            "expense": "$636.00",
+            "balance": "$12,789.46"
+        },
+        {
+            "date": "Jueves 25 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Compra ley cerveza michelob ultra",
+            "income": "",
+            "expense": "$1,058.00",
+            "balance": "$11,731.46"
+        },
+        {
+            "date": "Jueves 25 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Aeromexico flete italiano",
+            "income": "",
+            "expense": "$2,700.00",
+            "balance": "$9,031.46"
+        },
+        {
+            "date": "Jueves 25 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$1,592.45",
+            "balance": "$7,439.01"
+        },
+        {
+            "date": "Jueves 25 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$1,891.65",
+            "balance": "$5,547.36"
+        },
+        {
+            "date": "Jueves 25 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de caja al corte",
+            "income": "",
+            "expense": "$2,600.00",
+            "balance": "$2,947.36"
+        },
+        {
+            "date": "Viernes 26 de julio 2022",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$5,547.36"
+        },
+        {
+            "date": "Viernes 26 de julio 2023",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$7,788.00",
+            "expense": "",
+            "balance": "$13,335.36"
+        },
+        {
+            "date": "Viernes 26 de julio 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Walmart inciensos contra moscas",
+            "income": "",
+            "expense": "$149.00",
+            "balance": "$13,186.36"
+        },
+        {
+            "date": "Viernes 26 de julio 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Cartucho de tinta para impresora",
+            "income": "",
+            "expense": "$400.00",
+            "balance": "$12,786.36"
+        },
+        {
+            "date": "Viernes 26 de julio 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Rancho el 17 ",
+            "income": "",
+            "expense": "$2,970.30",
+            "balance": "$9,816.06"
+        },
+        {
+            "date": "Viernes 26 de julio 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Tequila cuervo tradicional barra",
+            "income": "",
+            "expense": "$439.00",
+            "balance": "$9,377.06"
+        },
+        {
+            "date": "Viernes 26 de julio 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$1,484.30",
+            "balance": "$7,892.76"
+        },
+        {
+            "date": "Viernes 26 de julio 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$1,870.90",
+            "balance": "$6,021.86"
+        },
+        {
+            "date": "Viernes 26 de julio 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de caja al corte",
+            "income": "",
+            "expense": "$2,600.00",
+            "balance": "$3,421.86"
+        },
+        {
+            "date": "Sabado 27 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Fondo de caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$6,021.86"
+        },
+        {
+            "date": "Sabado 27 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$9,298.30",
+            "expense": "",
+            "balance": "$15,320.16"
+        },
+        {
+            "date": "Sabado 27 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "black label, tequila reposado, jarabe natural barra",
+            "income": "",
+            "expense": "$1,455.00",
+            "balance": "$13,865.16"
+        },
+        {
+            "date": "Sabado 27 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Cinzano pro spritz barra",
+            "income": "",
+            "expense": "$229.05",
+            "balance": "$13,636.11"
+        },
+        {
+            "date": "Sabado 27 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Vinicio reparaci\u00f3n pastera",
+            "income": "",
+            "expense": "$800.00",
+            "balance": "$12,836.11"
+        },
+        {
+            "date": "Sabado 27 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$3,102.46",
+            "balance": "$9,733.65"
+        },
+        {
+            "date": "Sabado 27 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$2,244.10",
+            "balance": "$7,489.55"
+        },
+        {
+            "date": "Sabado 27 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Corte de caja al corte",
+            "income": "",
+            "expense": "$2,600.00",
+            "balance": "$4,889.55"
+        },
+        {
+            "date": "Domingo 28 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Corte de caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$7,489.55"
+        },
+        {
+            "date": "Domingo 28 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$1,510.00",
+            "expense": "",
+            "balance": "$8,999.55"
+        },
+        {
+            "date": "Domingo 28 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Compra ley cocina",
+            "income": "",
+            "expense": "$359.00",
+            "balance": "$8,640.55"
+        },
+        {
+            "date": "Domingo 28 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$974.80",
+            "balance": "$7,665.75"
+        },
+        {
+            "date": "Domingo 28 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$806.40",
+            "balance": "$6,859.35"
+        },
+        {
+            "date": "Domingo 28 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Corte de caja al corte",
+            "income": "",
+            "expense": "$2,009.00",
+            "balance": "$4,850.35"
+        },
+        {
+            "date": "Lunes 29 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Corte de caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$7,450.35"
+        },
+        {
+            "date": "Lunes 29 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Reembolso fondo de caja",
+            "income": "",
+            "expense": "$591.00",
+            "balance": "$6,859.35"
+        },
+        {
+            "date": "Lunes 29 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$5,690.50",
+            "expense": "",
+            "balance": "$12,549.85"
+        },
+        {
+            "date": "Lunes 29 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$761.61",
+            "balance": "$11,788.24"
+        },
+        {
+            "date": "Lunes 29 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$1,721.64",
+            "balance": "$10,066.60"
+        },
+        {
+            "date": "Lunes 29 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Compras barra sams",
+            "income": "",
+            "expense": "$1,095.59",
+            "balance": "$8,971.01"
+        },
+        {
+            "date": "Lunes 29 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Compras cocina sams",
+            "income": "",
+            "expense": "$1,774.00",
+            "balance": "$7,197.01"
+        },
+        {
+            "date": "Lunes 29 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Compras cocina costco aceite",
+            "income": "",
+            "expense": "$499.00",
+            "balance": "$6,698.01"
+        },
+        {
+            "date": "Lunes 29 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Compras cocina Costco",
+            "income": "",
+            "expense": "$1,324.60",
+            "balance": "$5,373.41"
+        },
+        {
+            "date": "Lunes 29 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Juego de mandiles",
+            "income": "",
+            "expense": "$300.00",
+            "balance": "$5,073.41"
+        },
+        {
+            "date": "Lunes 29 de julio del 2025",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Corte de caja al corte",
+            "income": "",
+            "expense": "$2,600.00",
+            "balance": "$2,473.41"
+        },
+        {
+            "date": "Martes 30 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Corte de caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$5,073.41"
+        },
+        {
+            "date": "Martes 30 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$10,765.00",
+            "expense": "",
+            "balance": "$15,838.41"
+        },
+        {
+            "date": "Martes 30 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Deposito moche meseros",
+            "income": "$284.90",
+            "expense": "",
+            "balance": "$16,123.31"
+        },
+        {
+            "date": "Martes 30 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Hielo ",
+            "income": "",
+            "expense": "$800.00",
+            "balance": "$15,323.31"
+        },
+        {
+            "date": "Martes 30 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Popinas pagadas",
+            "income": "",
+            "expense": "$617.90",
+            "balance": "$14,705.41"
+        },
+        {
+            "date": "Martes 30 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$1,329.75",
+            "balance": "$13,375.66"
+        },
+        {
+            "date": "Martes 30 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Corte de caja al corte",
+            "income": "",
+            "expense": "$2,600.00",
+            "balance": "$10,775.66"
+        },
+        {
+            "date": "Miercoles 31 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Corte de caja apertura",
+            "income": "$2,600.00",
+            "expense": "",
+            "balance": "$13,375.66"
+        },
+        {
+            "date": "Miercoles 31 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Venta Efectivo",
+            "income": "$2,815.00",
+            "expense": "",
+            "balance": "$16,190.66"
+        },
+        {
+            "date": "Miercoles 31 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Propinas Pagadas",
+            "income": "",
+            "expense": "$739.53",
+            "balance": "$15,451.13"
+        },
+        {
+            "date": "Miercoles 31 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Quesos y quesos pechuga de pollo",
+            "income": "",
+            "expense": "$516.00",
+            "balance": "$14,935.13"
+        },
+        {
+            "date": "Miercoles 31 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Retenciones Pagadas - Moche",
+            "income": "",
+            "expense": "$669.42",
+            "balance": "$14,265.71"
+        },
+        {
+            "date": "Miercoles 31 de julio del 2024",
+            "type": "Efectivo",
+            "category": "Corte",
+            "description": "Corte de caja al corte",
+            "income": "",
+            "expense": "$2,600.00",
+            "balance": "$11,665.71"
+        }
+    ]
+}

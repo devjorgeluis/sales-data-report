@@ -1,0 +1,9 @@
+{
+    "list": [
+        { "name": "Ana Esquivel", "amount": "0.00", "color": "bg-blue-600" },
+        { "name": "EPOS OLO", "amount": "0.00", "color": "bg-blue-200" },
+        { "name": "Maria", "amount": "0.00", "color": "bg-emerald-600" },
+        { "name": "Melaye", "amount": "0.00", "color": "bg-emerald-200" },
+        { "name": "Nefer Serna", "amount": "0.00", "color": "bg-yellow-600" }
+    ]
+}
