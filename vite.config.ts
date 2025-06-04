@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueDevTools from 'vite-plugin-vue-devtools'
+import react from '@vitejs/plugin-react';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -11,6 +12,7 @@ export default defineConfig({
     vue(),
     vueJsx(),
     vueDevTools(),
+    react()
   ],
   resolve: {
     alias: {
@@ -20,5 +22,7 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 8080,
+    allowedHosts: true,
   },
+  base: '/sales-data-report/',
 })
