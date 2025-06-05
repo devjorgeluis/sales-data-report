@@ -14,6 +14,14 @@ const router = createRouter({
         title: 'Dashboard',
       },
     },
+    {
+      path: '/cash-flow',
+      name: 'CashFlow',
+      component: () => import('../views/CashFlow.vue'),
+      meta: {
+        title: 'CashFlow',
+      },
+    },
   ],
 })
 

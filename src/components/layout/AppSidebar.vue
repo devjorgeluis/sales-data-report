@@ -203,6 +203,7 @@ import {
   TableIcon,
   ListIcon,
   PlugInIcon,
+  InfoCircleIcon,
 } from "../../icons";
 import BoxCubeIcon from "@/icons/BoxCubeIcon.vue";
 import { useSidebar } from "@/composables/useSidebar";
@@ -219,6 +220,12 @@ const menuGroups = [
         icon: GridIcon,
         name: "Dashboard",
         path: "/",
+        pro: false
+      },
+      {
+        icon: InfoCircleIcon,
+        name: "Cash Flow",
+        path: "/cash-flow",
         pro: false
       }
     ],
