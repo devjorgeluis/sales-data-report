@@ -15,13 +15,12 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Date Range</label>
-                <div class="flex gap-2">
-                    <input type="date" v-model="localFilters.startDate" @input="$emit('update:filters', localFilters)"
-                        class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
-                    <input type="date" v-model="localFilters.endDate" @input="$emit('update:filters', localFilters)"
-                        class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
-                </div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Month</label>
+                <select v-model="localFilters.month" @change="$emit('update:filters', localFilters)"
+                    class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                    <option value="">All Months</option>
+                    <option v-for="month in months" :key="month" :value="month">{{ month }}</option>
+                </select>
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Category</label>
@@ -45,6 +44,9 @@
 
 <script setup>
 import { ref, watch } from 'vue'
+import jsPDF from 'jspdf'
+import autoTable from 'jspdf-autotable'
+import * as XLSX from 'xlsx'
 
 const props = defineProps({
     filters: {
@@ -56,6 +58,14 @@ const props = defineProps({
         required: true
     },
     types: {
+        type: Array,
+        required: true
+    },
+    months: {
+        type: Array,
+        required: true
+    },
+    filteredCashFlows: {
         type: Array,
         required: true
     }
@@ -70,10 +80,58 @@ watch(() => props.filters, (newFilters) => {
 })
 
 const exportToPDF = () => {
-    emit('export-to-pdf')
+    const doc = new jsPDF()
+
+    const now = new Date()
+    const formattedDate = now.toLocaleString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+        timeZone: 'America/Los_Angeles'
+    }).replace(',', '')
+    doc.setFontSize(16)
+    doc.text(`Cash Flow Report - ${formattedDate} PDT`, 10, 10)
+
+    const headers = ['Date', 'Type', 'Category', 'Description', 'Income', 'Expense', 'Balance']
+    const data = props.filteredCashFlows.map(item => [
+        item.date || '',
+        item.type || '',
+        item.category || '',
+        item.description || '',
+        item.income ? `$${Number(item.income).toLocaleString('en-US', { minimumFractionDigits: 2 })}` : '-',
+        item.expense ? `$${Number(item.expense).toLocaleString('en-US', { minimumFractionDigits: 2 })}` : '-',
+        item.balance ? `$${Number(item.balance).toLocaleString('en-US', { minimumFractionDigits: 2 })}` : '-'
+    ])
+
+    autoTable(doc, {
+        head: [headers],
+        body: data,
+        startY: 20,
+        styles: { fontSize: 8 },
+        headStyles: { fillColor: [0, 102, 204] },
+        margin: { top: 10 }
+    })
+
+    const filename = `cash_flow_report_${now.toISOString().split('T')[0]}.pdf`
+    doc.save(filename)
 }
 
 const exportToExcel = () => {
-    emit('export-to-excel')
+    const data = props.filteredCashFlows.map(item => ({
+        Date: item.date || '',
+        Type: item.type || '',
+        Category: item.category || '',
+        Description: item.description || '',
+        Income: item.income ? Number(item.income) : '',
+        Expense: item.expense ? Number(item.expense) : '',
+        Balance: item.balance ? Number(item.balance) : ''
+    }))
+
+    const ws = XLSX.utils.json_to_sheet(data)
+
+    const wb = XLSX.utils.book_new()
+    XLSX.utils.book_append_sheet(wb, ws, 'Cash Flow')
+
+    XLSX.writeFile(wb, 'cash_flow_report.xlsx')
 }
 </script>

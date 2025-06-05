@@ -41,7 +41,7 @@
                 </select>
             </div>
 
-            <div class="flex items-center space-x-1">
+            <div class="flex items-center space-x-1" v-if="filteredData.length > 0">
                 <span class="text-sm text-gray-600 dark:text-gray-400">
                     Showing {{ paginationInfo.from }}-{{ paginationInfo.to }} of {{ filteredData.length }}
                 </span>

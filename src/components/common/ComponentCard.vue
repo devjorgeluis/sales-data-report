@@ -24,7 +24,7 @@
 import { defineProps } from 'vue'
 
 interface Props {
-  title: string
+  title?: string
   className?: string
   desc?: string
 }
