@@ -24,5 +24,5 @@ export default defineConfig({
     port: 8080,
     allowedHosts: true,
   },
-  base: '/',
+  base: '/sales-data-report/',
 })
