@@ -31,7 +31,7 @@ const router = createRouter({
       },
     },
     {
-      path: '/cash-register',
+      path: '/cash-out',
       name: 'CashRegister',
       component: () => import('../views/CashRegister.vue'),
       meta: {
