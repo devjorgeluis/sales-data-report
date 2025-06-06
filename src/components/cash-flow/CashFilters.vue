@@ -79,10 +79,17 @@ watch(() => props.filters, (newFilters) => {
     localFilters.value = { ...newFilters }
 })
 
+const now = new Date();
+const formatCurrency = (value) => {
+    return Number(value).toLocaleString('en-US', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+    });
+};
+
 const exportToPDF = () => {
     const doc = new jsPDF()
 
-    const now = new Date()
     const formattedDate = now.toLocaleString('en-US', {
         hour: '2-digit',
         minute: '2-digit',
@@ -98,9 +105,9 @@ const exportToPDF = () => {
         item.type || '',
         item.category || '',
         item.description || '',
-        item.income ? `$${Number(item.income).toLocaleString('en-US', { minimumFractionDigits: 2 })}` : '-',
-        item.expense ? `$${Number(item.expense).toLocaleString('en-US', { minimumFractionDigits: 2 })}` : '-',
-        item.balance ? `$${Number(item.balance).toLocaleString('en-US', { minimumFractionDigits: 2 })}` : '-'
+        item.income ? `$${formatCurrency(item.income)}` : '-',
+        item.expense ? `$${formatCurrency(item.expense)}` : '-',
+        item.balance ? `$${formatCurrency(item.balance)}` : '-'
     ])
 
     autoTable(doc, {
@@ -122,9 +129,9 @@ const exportToExcel = () => {
         Type: item.type || '',
         Category: item.category || '',
         Description: item.description || '',
-        Income: item.income ? Number(item.income) : '',
-        Expense: item.expense ? Number(item.expense) : '',
-        Balance: item.balance ? Number(item.balance) : ''
+        Income: item.income ? `$${formatCurrency(item.income)}` : '-',
+        Expense: item.expense ? `$${formatCurrency(item.expense)}` : '-',
+        Balance: item.balance ? `$${formatCurrency(item.balance)}` : '-'
     }))
 
     const ws = XLSX.utils.json_to_sheet(data)
@@ -132,6 +139,7 @@ const exportToExcel = () => {
     const wb = XLSX.utils.book_new()
     XLSX.utils.book_append_sheet(wb, ws, 'Cash Flow')
 
-    XLSX.writeFile(wb, 'cash_flow_report.xlsx')
+    const filename = `cash_flow_report_${now.toISOString().split('T')[0]}.xlsx`
+    XLSX.writeFile(wb, filename)
 }
 </script>

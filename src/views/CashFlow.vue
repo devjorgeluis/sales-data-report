@@ -35,7 +35,7 @@ import TableView from "@/components/cash-flow/TableView.vue";
 import ChartView from "@/components/cash-flow/ChartView.vue";
 
 import { ref, computed, onMounted, watch } from 'vue'
-import data from '../json/cash_flow.json'
+import data from '@/json/cash_flow.json'
 
 const allCashFlows = ref([])
 const viewMode = ref('table')
@@ -128,8 +128,8 @@ const handlePageChange = ({ page, itemsPerPage: newItemsPerPage }) => {
 }
 
 const exportToPDF = () => {
-}
+};
 
 const exportToExcel = () => {
-}
+};
 </script>

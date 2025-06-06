@@ -227,6 +227,12 @@ const menuGroups = [
         name: "Cash Flow",
         path: "/cash-flow",
         pro: false
+      },
+      {
+        icon: BoxCubeIcon,
+        name: "Profit Loss",
+        path: "/profit-loss",
+        pro: false
       }
     ],
   },
