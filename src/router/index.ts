@@ -30,6 +30,14 @@ const router = createRouter({
         title: 'ProfitLoss',
       },
     },
+    {
+      path: '/cash-register',
+      name: 'CashRegister',
+      component: () => import('../views/CashRegister.vue'),
+      meta: {
+        title: 'CashRegister',
+      },
+    },
   ],
 })
 
