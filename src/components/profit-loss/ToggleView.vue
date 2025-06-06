@@ -6,21 +6,21 @@
                 class="px-4 py-2 rounded-lg" 
                 :class="viewMode === 'summary' ? 'bg-gray-200 dark:bg-gray-700 dark:text-white' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white'"
             >
-                Summary View
+                Summary
             </button>
             <button 
                 @click="updateViewMode('detail')" 
                 class="px-4 py-2 rounded-lg" 
                 :class="viewMode === 'detail' ? 'bg-gray-200 dark:bg-gray-700 dark:text-white' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white'"
             >
-                Detail View
+                Detail
             </button>
             <button 
                 @click="updateViewMode('chart')" 
                 class="px-4 py-2 rounded-lg" 
                 :class="viewMode === 'chart' ? 'bg-gray-200 dark:bg-gray-700 dark:text-white' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white'"
             >
-                Chart View
+                Chart
             </button>
         </div>
     </div>

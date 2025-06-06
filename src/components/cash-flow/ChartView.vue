@@ -72,7 +72,7 @@ const chartOptions = computed(() => {
             type: 'line',
             height: '100%',
             toolbar: {
-                show: true,
+                show: false,
                 tools: {
                     download: true,
                     selection: true,

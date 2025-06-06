@@ -1,15 +1,11 @@
 <template>
-    <div
-        class="p-6 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <div class="flex flex-col gap-2">
-                <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-100">Filter by Date Range</h2>
-                <div class="flex gap-3">
-                    <input type="date" v-model="localFilters.startDate"
-                        class="border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all duration-200" />
-                    <input type="date" v-model="localFilters.endDate"
-                        class="border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all duration-200" />
-                </div>
+    <div class="p-5 border-b border-gray-200 dark:border-gray-700">
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+            <div class="flex flex-col gap-2 w-[300px]">
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Date Range</h2>
+                <input ref="datePicker" 
+                    class="border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all duration-200" 
+                    placeholder="Select date range" />
             </div>
             <div class="flex flex-wrap gap-3">
                 <button @click="exportToPDF"
@@ -26,10 +22,12 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import * as XLSX from 'xlsx';
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
 
 const props = defineProps({
     filters: {
@@ -45,8 +43,23 @@ const props = defineProps({
 const emit = defineEmits(['update:filters', 'export-to-pdf', 'export-to-excel']);
 
 const localFilters = ref({ ...props.filters });
+const datePicker = ref(null);
+onMounted(() => {
+    flatpickr(datePicker.value, {
+        mode: "range",
+        dateFormat: "Y/m/d",
+        defaultDate: [localFilters.value.startDate, localFilters.value.endDate],
+        onChange: (selectedDates) => {
+            if (selectedDates.length === 2) {
+                localFilters.value.startDate = selectedDates[0].toISOString().split('T')[0];
+                localFilters.value.endDate = selectedDates[1].toISOString().split('T')[0];
+            }
+        },
+    });
+});
 
 watch(localFilters, (newFilters) => {
+    newFilters = { ...newFilters };
     emit('update:filters', newFilters);
 }, { deep: true });
 

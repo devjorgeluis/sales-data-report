@@ -1,7 +1,7 @@
 <template>
     <admin-layout>
-        <div class="p-6 space-y-6 bg-gray-50 min-h-screen dark:bg-gray-900">
-            <ComponentCard class="shadow-lg rounded-xl bg-white dark:bg-gray-800">
+        <div class="space-y-5 sm:space-y-6">
+            <ComponentCard>
                 <pl-filters :filters="filters" :filtered-data="filteredData" @update:filters="filters = $event"
                     @export-to-pdf="exportToPDF" @export-to-excel="exportToExcel" />
 
@@ -40,6 +40,7 @@ const transformPlData = (jsonData) => {
         if (!monthlyData[monthKey]) {
             monthlyData[monthKey] = {
                 date: monthKey,
+                fullDate: date,
                 revenue: { total: 0, subCategories: [] },
                 costOfGoodsSold: { total: 0, subCategories: [] },
                 operatingExpenses: { total: 0, subCategories: [] },
@@ -101,12 +102,10 @@ onMounted(() => {
 const filteredData = computed(() => {
     return allPlData.value.filter(item => {
         if (filters.value.startDate && filters.value.endDate) {
-            const itemDate = new Date(item.date);
-            const startDate = new Date(filters.value.startDate);
-            const endDate = new Date(filters.value.endDate);
-            if (itemDate < startDate || itemDate > endDate) {
-                return false;
-            }
+            const itemDate = new Date(item.fullDate).toISOString().split('T')[0];
+            const startDate = filters.value.startDate;
+            const endDate = filters.value.endDate;
+            return itemDate >= startDate && itemDate <= endDate;
         }
         return true;
     });

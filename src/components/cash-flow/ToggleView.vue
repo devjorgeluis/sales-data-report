@@ -3,11 +3,11 @@
         <div class="flex gap-4">
             <button @click="updateViewMode('table')" class="px-4 py-2 rounded-lg"
                 :class="viewMode === 'table' ? 'bg-gray-200 dark:bg-gray-700 dark:text-white' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white'">
-                Table View
+                Table
             </button>
             <button @click="updateViewMode('chart')" class="px-4 py-2 rounded-lg"
                 :class="viewMode === 'chart' ? 'bg-gray-200 dark:bg-gray-700 dark:text-white' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white'">
-                Chart View
+                Chart
             </button>
         </div>
     </div>
