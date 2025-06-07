@@ -100,7 +100,7 @@
                     </section>
 
                     <!-- Cancellations and Discounts -->
-                    <section class="mb-6 pb-6 border-b">
+                    <section class="mb-6">
                         <h3 class="text-gray-800 dark:text-white text-lg lg:text-xl text-center font-semibold my-3">
                             CANCELACIONES Y DESCUENTOS</h3>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-gray-600 dark:text-gray-300">

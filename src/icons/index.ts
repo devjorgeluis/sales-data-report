@@ -26,6 +26,10 @@ import SettingsIcon from "./SettingsIcon.vue";
 import HomeIcon from "./HomeIcon.vue";
 import ChevronRightIcon from "./ChevronRightIcon.vue";
 import BoxIcon from "./BoxIcon.vue";
+import NextIcon from "./NextIcon.vue";
+import PreviousIcon from "./PreviousIcon.vue";
+import AngleRightIcon from "./AngleRightIcon.vue";
+import AngleLeftIcon from "./AngleLeftIcon.vue";
 import ErrorHexaIcon from "./ErrorHexaIcon.vue";
 import Calendar2Line from "./Calendar2Line.vue";
 import Message2Line from "./Message2Line.vue";
@@ -64,6 +68,10 @@ export {
   PaperclipIcon,
   BoxIcon,
   ChevronRightIcon,
+  AngleLeftIcon,
+  AngleRightIcon,
+  NextIcon,
+  PreviousIcon,
   GridIcon,
   BoxCubeIcon,
   CalenderIcon,

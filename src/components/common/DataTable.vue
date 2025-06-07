@@ -21,7 +21,7 @@
                         'text-center': column.align === 'center'
                     }">
                         <slot :name="`cell-${column.key}`" :item="item" :value="item[column.key]">
-                            <p class="text-gray-500 text-theme-sm dark:text-gray-400">
+                            <p class="text-gray-500 text-theme-sm dark:text-gray-400 min-w-[80px]">
                                 {{ column.format ? column.format(item[column.key]) : item[column.key] }}
                             </p>
                         </slot>
@@ -30,8 +30,8 @@
             </tbody>
         </table>
 
-        <div class="p-4 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between">
-            <div class="flex items-center">
+        <div class="p-4 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between gap-3">
+            <div class="flex items-center min-w-fit">
                 <label class="mr-2 text-sm text-gray-600 dark:text-gray-400">Items per page:</label>
                 <select v-model="itemsPerPage"
                     class="px-2 py-1 border border-gray-300 rounded-md text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white">
@@ -41,7 +41,7 @@
                 </select>
             </div>
 
-            <div class="flex items-center space-x-1" v-if="filteredData.length > 0">
+            <div class="flex items-center space-x-1 min-w-fit" v-if="filteredData.length > 0">
                 <span class="text-sm text-gray-600 dark:text-gray-400">
                     Showing {{ paginationInfo.from }}-{{ paginationInfo.to }} of {{ filteredData.length }}
                 </span>
@@ -49,14 +49,14 @@
 
             <div class="flex space-x-1">
                 <button @click="goToPage(1)" :disabled="currentPage === 1"
-                    class="px-3 py-1 rounded-md text-sm border border-gray-300 dark:border-gray-600"
+                    class="px-2 py-1 rounded-md text-sm border border-gray-300 dark:border-gray-600"
                     :class="currentPage === 1 ? 'text-gray-400 dark:text-gray-600 cursor-not-allowed' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'">
-                    First
+                    <PreviousIcon />
                 </button>
                 <button @click="goToPage(currentPage - 1)" :disabled="currentPage === 1"
-                    class="px-3 py-1 rounded-md text-sm border border-gray-300 dark:border-gray-600"
+                    class="px-2 py-1 rounded-md text-sm border border-gray-300 dark:border-gray-600"
                     :class="currentPage === 1 ? 'text-gray-400 dark:text-gray-600 cursor-not-allowed' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'">
-                    Prev
+                    <AngleLeftIcon />
                 </button>
 
                 <div class="flex space-x-1">
@@ -68,14 +68,14 @@
                 </div>
 
                 <button @click="goToPage(currentPage + 1)" :disabled="currentPage === totalPages"
-                    class="px-3 py-1 rounded-md text-sm border border-gray-300 dark:border-gray-600"
+                    class="px-2 py-1 rounded-md text-sm border border-gray-300 dark:border-gray-600"
                     :class="currentPage === totalPages ? 'text-gray-400 dark:text-gray-600 cursor-not-allowed' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'">
-                    Next
+                    <AngleRightIcon />
                 </button>
                 <button @click="goToPage(totalPages)" :disabled="currentPage === totalPages"
-                    class="px-3 py-1 rounded-md text-sm border border-gray-300 dark:border-gray-600"
+                    class="px-2 py-1 rounded-md text-sm border border-gray-300 dark:border-gray-600"
                     :class="currentPage === totalPages ? 'text-gray-400 dark:text-gray-600 cursor-not-allowed' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'">
-                    Last
+                    <NextIcon />
                 </button>
             </div>
         </div>
@@ -84,6 +84,7 @@
 
 <script setup>
 import { ref, computed, watch } from 'vue'
+import { NextIcon, PreviousIcon, AngleRightIcon, AngleLeftIcon } from '@/icons'
 
 const props = defineProps({
     columns: {
