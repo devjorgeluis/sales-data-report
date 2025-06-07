@@ -239,7 +239,7 @@ const menuGroups = [
         name: "Cash Out",
         path: "/cash-out",
         pro: false
-      }
+      },
     ],
   },
 ];

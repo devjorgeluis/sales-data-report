@@ -32,12 +32,12 @@ const router = createRouter({
     },
     {
       path: '/cash-out',
-      name: 'CashRegister',
-      component: () => import('../views/CashRegister.vue'),
+      name: 'CashOut',
+      component: () => import('../views/CashOut.vue'),
       meta: {
-        title: 'CashRegister',
+        title: 'CashOut',
       },
-    },
+    }
   ],
 })
 
