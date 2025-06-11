@@ -2,7 +2,7 @@
     <admin-layout>
         <div class="space-y-5 sm:space-y-6">
             <ComponentCard>
-                <pl-filters :filters="filters" :filtered-data="filteredData" @update:filters="filters = $event"
+                <pl-filters :filters="filters" :filtered-data="filteredData"  :total-data="profitLossData.total" @update:filters="filters = $event"
                     @export-to-pdf="exportToPDF" @export-to-excel="exportToExcel" />
 
                 <pl-table :filtered-data="filteredData" :total-data="profitLossData.total" />

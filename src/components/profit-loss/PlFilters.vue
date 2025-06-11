@@ -38,6 +38,10 @@ const props = defineProps({
         type: Array,
         required: true,
     },
+    totalData: {
+        type: Object,
+        required: true,
+    }
 });
 
 const emit = defineEmits(['update:filters', 'export-to-pdf', 'export-to-excel']);
@@ -65,11 +69,15 @@ watch(localFilters, (newFilters) => {
 }, { deep: true });
 
 const formatCurrency = (value) => {
-    return Number(value).toLocaleString('en-US', {
+    return value !== 0 ? "$" + Number(value).toLocaleString('en-US', {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
-    });
+    }) : "-";
 };
+
+const capitalizeFirstLetter = (str) => {
+  return str.replace(/^./, (char) => char.toUpperCase());
+}
 
 const exportToPDF = () => {
     const doc = new jsPDF();
@@ -78,7 +86,7 @@ const exportToPDF = () => {
     if (props.filteredData && props.filteredData.length) {
         props.filteredData.forEach((item) => {
         tableData.push([
-            item.name,
+            capitalizeFirstLetter(item.name),
             formatCurrency(item.total?.price ?? item.price ?? 0),
             (item.total?.percent ?? item.percent ?? 0) + '%'
         ]);
@@ -86,7 +94,7 @@ const exportToPDF = () => {
         if (item.list?.length) {
             item.list.forEach((subItem) => {
             tableData.push([
-                `  ${subItem.name}`,
+                `    ${capitalizeFirstLetter(subItem.name)}`,
                 formatCurrency(subItem.total?.price ?? subItem.price ?? 0),
                 (subItem.total?.percent ?? subItem.percent ?? 0) + '%'
             ]);
@@ -94,7 +102,7 @@ const exportToPDF = () => {
             if (subItem.list?.length) {
                 subItem.list.forEach((grandSubItem) => {
                 tableData.push([
-                    `${grandSubItem.name}`,
+                    `        ${capitalizeFirstLetter(grandSubItem.name)}`,
                         formatCurrency(grandSubItem.price ?? 0),
                         (grandSubItem.percent ?? 0) + '%'
                     ]);
@@ -125,29 +133,26 @@ const exportToPDF = () => {
 
 const exportToExcel = () => {
     const worksheetData = [];
-    const headers = ['Concepto', 'Importe ($)', '%'];
 
-    worksheetData.push(headers);
     props.filteredData.forEach((item) => {
-        worksheetData.push([item.name, formatCurrency(item.total ? item.total.price : item.price), (item.total ? item.total.percent : item.percent) + '%']);
+        worksheetData.push([capitalizeFirstLetter(item.name), formatCurrency(item.total ? item.total.price : item.price), (item.total ? item.total.percent : item.percent) + '%']);
         if (item.list) {
             item.list.forEach((subItem) => {
-                worksheetData.push(['  ' + subItem.name, formatCurrency(subItem.total ? subItem.total.price : subItem.price), (subItem.total ? subItem.total.percent : subItem.percent) + '%']);
+                worksheetData.push(['  ' + capitalizeFirstLetter(subItem.name), formatCurrency(subItem.total ? subItem.total.price : subItem.price), (subItem.total ? subItem.total.percent : subItem.percent) + '%']);
                 if (subItem.list) {
                     subItem.list.forEach((grandSubItem) => {
-                        worksheetData.push(['    ' + grandSubItem.name, formatCurrency(grandSubItem.price), grandSubItem.percent + '%']);
+                        worksheetData.push(['    ' + capitalizeFirstLetter(grandSubItem.name), formatCurrency(grandSubItem.price), grandSubItem.percent + '%']);
                     });
                 }
             });
         }
     });
 
-    worksheetData.push(['Total Ventas', formatCurrency(props.filteredData[0]?.total?.price || 0), props.filteredData[0]?.total?.percent + '%']);
-    worksheetData.push(['Total Costo de Venta', formatCurrency(props.filteredData[1]?.total?.price || 0), props.filteredData[1]?.total?.percent + '%']);
-    worksheetData.push(['Total Mano de Obra', formatCurrency(props.filteredData[2]?.total?.price || 0), props.filteredData[2]?.total?.percent + '%']);
-    worksheetData.push(['Total Gastos Fijos o Variables', formatCurrency(props.filteredData[3]?.total?.price || 0), props.filteredData[3]?.total?.percent + '%']);
-    worksheetData.push(['Total Gastos Fijos', formatCurrency(props.filteredData[4]?.total?.price || 0), props.filteredData[4]?.total?.percent + '%']);
-    worksheetData.push(['Costo de Producción', formatCurrency(props.filteredData[3]?.production_cost?.price || 0), props.filteredData[3]?.production_cost?.percent + '%']);
+    worksheetData.push(['Ganancia Operativa Bruta', formatCurrency(props.totalData.profit.price), props.totalData.profit.percent + '%']);
+    worksheetData.push(['Impuestos SAT', formatCurrency(props.totalData.tax.price), props.totalData.tax.percent + '%']);
+    worksheetData.push(['Préstamos Bancarios', formatCurrency(props.totalData.interest.price), props.totalData.interest.percent + '%']);
+    worksheetData.push(['Ganancia Bruta antes de Impuestos', formatCurrency(props.totalData.profit_without_tax.price), props.totalData.profit_without_tax.percent + '%']);
+    worksheetData.push(['TOTAL GASTOS', formatCurrency(props.totalData.expense.price)]);
 
     const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
     const workbook = XLSX.utils.book_new();
