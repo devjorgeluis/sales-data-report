@@ -3,12 +3,12 @@
         <table class="min-w-full">
             <thead>
                 <tr class="border-b border-gray-200 dark:border-gray-700">
-                    <th v-for="column in columns" :key="column.key" class="px-5 py-3 text-left sm:px-6 cursor-pointer" :class="{
+                    <th v-for="column in columns" :key="column.key" class="px-3 py-3 sm:px-6 text-left cursor-pointer min-w-[120px]" :class="{
                         'text-right': column.align === 'right',
                         'text-center': column.align === 'center'
                     }" @click="sortColumn(column.key)" :style="{ width: column.width }">
-                        <p class="flex items-center font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                            {{ column.label }}
+                        <p class="flex items-center leading-[1.5] font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                            <span>{{ column.label }}</span>
                             <span v-if="sortKey === column.key" class="ml-2">
                                 <svg v-if="sortDirection === 'asc'" class="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M5 15l7-7 7 7H5z"/>
@@ -24,7 +24,7 @@
             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
                 <tr v-for="(item, index) in paginatedData" :key="index"
                     class="border-t border-gray-100 dark:border-gray-800 even:bg-gray-200 odd:bg-white dark:even:bg-gray-500 dark:odd:bg-gray-700">
-                    <td v-for="column in columns" :key="column.key" class="px-5 py-4 sm:px-6" :class="{
+                    <td v-for="column in columns" :key="column.key" class="px-3 py-2 sm:py-4 sm:px-6" :class="{
                         'text-right': column.align === 'right',
                         'text-center': column.align === 'center'
                     }" :style="{ width: column.width }">
