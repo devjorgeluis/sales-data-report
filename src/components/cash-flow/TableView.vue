@@ -39,13 +39,13 @@ const props = defineProps({
 const emit = defineEmits(['page-change'])
 
 const columns = [
-    { key: 'date', label: 'Date', align: 'left' },
-    { key: 'type', label: 'Type', align: 'left' },
-    { key: 'category', label: 'Category', align: 'left' },
-    { key: 'description', label: 'Description', align: 'left' },
-    { key: 'income', label: 'Income', align: 'right' },
-    { key: 'expense', label: 'Expense', align: 'right' },
-    { key: 'balance', label: 'Balance', align: 'right' }
+    { key: 'date', label: 'Date', align: 'left', width: '30%' },
+    { key: 'type', label: 'Type', align: 'left', width: '10%' },
+    { key: 'category', label: 'Category', align: 'left', width: '10%' },
+    { key: 'description', label: 'Description', align: 'left', width: '20%' },
+    { key: 'income', label: 'Income', align: 'left', width: '10%' },
+    { key: 'expense', label: 'Expense', align: 'left', width: '10%' },
+    { key: 'balance', label: 'Balance', align: 'left', width: '10%' }
 ]
 
 const formatCurrency = (value) => {

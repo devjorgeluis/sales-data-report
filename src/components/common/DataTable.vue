@@ -3,12 +3,20 @@
         <table class="min-w-full">
             <thead>
                 <tr class="border-b border-gray-200 dark:border-gray-700">
-                    <th v-for="column in columns" :key="column.key" class="px-5 py-3 text-left sm:px-6" :class="{
+                    <th v-for="column in columns" :key="column.key" class="px-5 py-3 text-left sm:px-6 cursor-pointer" :class="{
                         'text-right': column.align === 'right',
                         'text-center': column.align === 'center'
-                    }">
-                        <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                    }" @click="sortColumn(column.key)" :style="{ width: column.width }">
+                        <p class="flex items-center font-medium text-gray-500 text-theme-xs dark:text-gray-400">
                             {{ column.label }}
+                            <span v-if="sortKey === column.key" class="ml-2">
+                                <svg v-if="sortDirection === 'asc'" class="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M5 15l7-7 7 7H5z"/>
+                                </svg>
+                                <svg v-else class="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M5 5l7 7 7-7H5z"/>
+                                </svg>
+                            </span>
                         </p>
                     </th>
                 </tr>
@@ -19,7 +27,7 @@
                     <td v-for="column in columns" :key="column.key" class="px-5 py-4 sm:px-6" :class="{
                         'text-right': column.align === 'right',
                         'text-center': column.align === 'center'
-                    }">
+                    }" :style="{ width: column.width }">
                         <slot :name="`cell-${column.key}`" :item="item" :value="item[column.key]">
                             <p class="text-gray-500 text-theme-sm dark:text-gray-400 min-w-[80px]">
                                 {{ column.format ? column.format(item[column.key]) : item[column.key] }}
@@ -107,10 +115,10 @@ const emit = defineEmits(['page-change'])
 
 const currentPage = ref(1)
 const itemsPerPage = ref(props.itemsPerPageOptions[1] || 20)
+const sortKey = ref(null)
+const sortDirection = ref('asc')
 
-const totalPages = computed(() => {
-    return Math.ceil(props.filteredData.length / itemsPerPage.value) || 1
-})
+const totalPages = computed(() => Math.ceil(props.filteredData.length / itemsPerPage.value) || 1)
 
 const displayedPages = computed(() => {
     const range = 2
@@ -127,14 +135,38 @@ const displayedPages = computed(() => {
     for (let i = start; i <= end; i++) {
         pages.push(i)
     }
-
     return pages
 })
 
 const paginatedData = computed(() => {
+    let data = [...props.filteredData]
+    if (sortKey.value) {
+        data.sort((a, b) => {
+            const aValue = a[sortKey.value]
+            const bValue = b[sortKey.value]
+
+            if (aValue == null || bValue == null) {
+                return aValue == null ? 1 : -1
+            }
+
+            if (typeof aValue === 'string' && typeof bValue === 'string') {
+                return sortDirection.value === 'asc' ? 
+                    aValue.toLowerCase().localeCompare(bValue.toLowerCase()) : 
+                    bValue.toLowerCase().localeCompare(aValue.toLowerCase())
+            }
+
+            if (typeof aValue === 'number' && typeof bValue === 'number') {
+                return sortDirection.value === 'asc' ? aValue - bValue : bValue - aValue
+            }
+
+            return sortDirection.value === 'asc' ? 
+                String(aValue).localeCompare(String(bValue)) : 
+                String(bValue).localeCompare(String(aValue))
+        })
+    }
     const startIndex = (currentPage.value - 1) * itemsPerPage.value
     const endIndex = startIndex + itemsPerPage.value
-    return props.filteredData.slice(startIndex, endIndex)
+    return data.slice(startIndex, endIndex)
 })
 
 const paginationInfo = computed(() => {
@@ -149,11 +181,15 @@ const goToPage = (page) => {
     emit('page-change', page)
 }
 
-watch(() => props.filteredData, () => {
-    currentPage.value = 1
-})
+const sortColumn = (key) => {
+    if (sortKey.value === key) {
+        sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc'
+    } else {
+        sortKey.value = key
+        sortDirection.value = 'asc'
+    }
+}
 
-watch(itemsPerPage, () => {
-    currentPage.value = 1
-})
+watch(() => props.filteredData, () => currentPage.value = 1)
+watch(itemsPerPage, () => currentPage.value = 1)
 </script>

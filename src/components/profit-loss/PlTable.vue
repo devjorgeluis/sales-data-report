@@ -9,7 +9,7 @@
                                 {{ item.name }}:
                             </td>
                         </tr>
-                        
+
                         <template v-if="item.list && item.list.length">
                             <template v-for="(subItem, subIndex) in item.list" :key="`${index}-${subIndex}`">
                                 <tr :class="subItem.list && subItem.list.length > 0 ? 'bg-white dark:bg-gray-700 dark:text-gray-400' : 'bg-yellow-100 dark:bg-yellow-200'">
