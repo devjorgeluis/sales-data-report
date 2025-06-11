@@ -106,19 +106,11 @@ const exportToPDF = () => {
         head: [headers],
         body: data,
         startY: 10,
-        theme: 'striped',
-        styles: { 
-            halign: 'left', 
-            cellPadding: 2,
-            fillColor: [0, 0, 0],
-            textColor: [255, 255, 255],
+        styles: {
             fontSize: 8
         },
-        alternateRowStyles: {
-            fillColor: [254, 249, 194],
-            textColor: [0, 0, 0]
-        },
         headStyles: { fillColor: [0, 102, 204] },
+        margin: { top: 10 }
     })
 
     const filename = `cash_flow_report_${now.toISOString().split('T')[0]}.pdf`
