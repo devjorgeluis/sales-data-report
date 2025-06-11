@@ -85,6 +85,7 @@
                 <router-link
                   v-else-if="item.path"
                   :to="item.path"
+                  @click="handleToggle"
                   :class="[
                     'menu-item group',
                     {
@@ -210,7 +211,11 @@ import { useSidebar } from "@/composables/useSidebar";
 
 const route = useRoute();
 
-const { isExpanded, isMobileOpen, isHovered, openSubmenu } = useSidebar();
+const { isExpanded, isMobileOpen, isHovered, openSubmenu, toggleMobileSidebar } = useSidebar();
+
+const handleToggle = () => {
+  toggleMobileSidebar()
+}
 
 const menuGroups = [
   {

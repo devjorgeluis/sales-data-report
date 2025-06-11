@@ -3,22 +3,6 @@
         <div class="space-y-5 sm:space-y-6">
             <ComponentCard>
                 <div class="space-y-6 p-4 sm:p-6 lg:p-8 max-w-5xl mx-auto print:max-w-full">
-                    <!-- Header -->
-                    <div class="text-center mb-6 text-gray-600 dark:text-gray-300">
-                        <p>LA BARCAZA METROCENTO</p>
-                        <p>LA BARCAZA OYSTER BAR</p>
-                        <p>BARCAZA COLOSIO SA DE CV</p>
-                        <p>BCO241017EN4</p>
-                        <p>BLVD. LUIS DONALDO COLOSIO 450</p>
-                        <p>COLONIA METROCENTRO</p>
-                        <p>HERMOSILLO, SONORA. CP 83250</p>
-                        <h3 class="text-gray-800 dark:text-white text-lg lg:text-xl font-semibold my-3">**LUGAR DE EXPEDICION**</h3>
-                        <p>BLVD. LUIS DONALDO COLOSIO 450</p>
-                        <p>COLONIA METROCENTRO</p>
-                        <p>HERMOSILLO, SONORA. CP 83250</p>
-                    </div>
-
-                    <!-- Corte de Caja Section -->
                     <section class="mb-6 pb-6 border-b">
                         <h3 class="text-gray-800 dark:text-white text-lg lg:text-xl text-center font-semibold my-3">**CORTE DE CAJA X**</h3>
 

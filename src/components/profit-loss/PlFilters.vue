@@ -9,11 +9,11 @@
             </div>
             <div class="flex flex-wrap gap-3">
                 <button @click="exportToPDF"
-                    class="px-4 py-2 bg-blue-500 text-sm text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    class="px-4 py-2 bg-yellow-400 text-sm text-black rounded-lg hover:bg-yellow-500 transition-colors">
                     Export to PDF
                 </button>
                 <button @click="exportToExcel"
-                    class="px-4 py-2 bg-green-500 text-sm text-white rounded-lg hover:bg-green-700 transition-colors">
+                    class="px-4 py-2 bg-yellow-400 text-sm text-black rounded-lg hover:bg-yellow-500 transition-colors">
                     Export to Excel
                 </button>
             </div>
@@ -44,6 +44,7 @@ const emit = defineEmits(['update:filters', 'export-to-pdf', 'export-to-excel'])
 
 const localFilters = ref({ ...props.filters });
 const datePicker = ref(null);
+
 onMounted(() => {
     flatpickr(datePicker.value, {
         mode: "range",
@@ -53,17 +54,19 @@ onMounted(() => {
             if (selectedDates.length === 2) {
                 localFilters.value.startDate = selectedDates[0].toISOString().split('T')[0];
                 localFilters.value.endDate = selectedDates[1].toISOString().split('T')[0];
+                emit('update:filters', { ...localFilters.value });
+
+                console.log(selectedDates);
+                
             }
         },
     });
 });
 
 watch(localFilters, (newFilters) => {
-    newFilters = { ...newFilters };
-    emit('update:filters', newFilters);
+    emit('update:filters', { ...newFilters });
 }, { deep: true });
 
-const now = new Date();
 const formatCurrency = (value) => {
     return Number(value).toLocaleString('en-US', {
         minimumFractionDigits: 2,
@@ -73,54 +76,78 @@ const formatCurrency = (value) => {
 
 const exportToPDF = () => {
     const doc = new jsPDF();
+    const tableData = [];
+    const tableHeaders = ['Concepto', 'Importe ($)', '%'];
 
-    const formattedDate = now.toLocaleString('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: true,
-        timeZone: 'America/Los_Angeles',
-    }).replace(',', '');
-    doc.setFontSize(16);
-    doc.text(`Profit & Loss Report - ${formattedDate} PDT`, 10, 10);
-
-    const headers = ['Date', 'Revenue', 'Cost of Goods Sold', 'Gross Profit', 'Operating Expenses', 'Net Income'];
-    const data = props.filteredData.map(item => [
-        item.date || '',
-        `$` + formatCurrency(item.revenue.total) || '-',
-        `$` + formatCurrency(item.costOfGoodsSold.total) || '-',
-        `$` + formatCurrency(item.revenue.total - item.costOfGoodsSold.total) || '-',
-        `$` + formatCurrency(item.operatingExpenses.total) || '-',
-        `$` + formatCurrency(item.revenue.total - item.costOfGoodsSold.total - item.operatingExpenses.total) || '-',
-    ]);
-
-    autoTable(doc, {
-        head: [headers],
-        body: data,
-        startY: 20,
-        styles: { fontSize: 8 },
-        headStyles: { fillColor: [0, 102, 204] },
-        margin: { top: 10 },
+    props.filteredData.forEach((item) => {
+        tableData.push([item.name, formatCurrency(item.total ? item.total.price : item.price), (item.total ? item.total.percent : item.percent) + '%']);
+        if (item.list) {
+            item.list.forEach((subItem) => {
+                tableData.push(['  ' + subItem.name, formatCurrency(subItem.total ? subItem.total.price : subItem.total.price), (subItem.total ? subItem.total.percent : subItem.percent) + '%']);
+                if (subItem.list) {
+                    subItem.list.forEach((grandSubItem) => {
+                        tableData.push(['    ' + grandSubItem.name, formatCurrency(grandSubItem.price), grandSubItem.percent + '%']);
+                    });
+                }
+            });
+        }
     });
 
-    const filename = `profit_loss_report_${now.toISOString().split('T')[0]}.pdf`;
-    doc.save(filename);
+    tableData.push(['Total Ventas', formatCurrency(props.filteredData[0]?.total?.price || 0), props.filteredData[0]?.total?.percent + '%']);
+    tableData.push(['Total Costo de Venta', formatCurrency(props.filteredData[1]?.total?.price || 0), props.filteredData[1]?.total?.percent + '%']);
+    tableData.push(['Total Mano de Obra', formatCurrency(props.filteredData[2]?.total?.price || 0), props.filteredData[2]?.total?.percent + '%']);
+    tableData.push(['Total Gastos Fijos o Variables', formatCurrency(props.filteredData[3]?.total?.price || 0), props.filteredData[3]?.total?.percent + '%']);
+    tableData.push(['Total Gastos Fijos', formatCurrency(props.filteredData[4]?.total?.price || 0), props.filteredData[4]?.total?.percent + '%']);
+    tableData.push(['Costo de Producción', formatCurrency(props.filteredData[3]?.production_cost?.price || 0), props.filteredData[3]?.production_cost?.percent + '%']);
+
+    autoTable(doc, {
+        head: [tableHeaders],
+        body: tableData,
+        startY: 10,
+        theme: 'striped',
+        styles: { halign: 'right', cellPadding: 2 },
+        columnStyles: {
+            0: { halign: 'left', cellWidth: 100 },
+            1: { halign: 'right', cellWidth: 50 },
+            2: { halign: 'right', cellWidth: 30 }
+        }
+    });
+
+    doc.save('profit_loss_report.pdf');
+    emit('export-to-pdf');
 };
 
 const exportToExcel = () => {
-    const data = props.filteredData.map(item => ({
-        Date: item.date || '',
-        'Revenue': `$` + formatCurrency(item.revenue.total) || '-',
-        'Cost of Goods Sold': `$` + formatCurrency(item.costOfGoodsSold.total) || '-',
-        'Gross Profit': `$` + formatCurrency(item.revenue.total - item.costOfGoodsSold.total) || '-',
-        'Operating Expenses': `$` + formatCurrency(item.operatingExpenses.total) || '-',
-        'Net Income': `$` + formatCurrency(item.revenue.total - item.costOfGoodsSold.total - item.operatingExpenses.total) || '-',
-    }));
+    const worksheetData = [];
+    const headers = ['Concepto', 'Importe ($)', '%'];
 
-    const ws = XLSX.utils.json_to_sheet(data);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Profit & Loss');
+    worksheetData.push(headers);
+    props.filteredData.forEach((item) => {
+        worksheetData.push([item.name, formatCurrency(item.total ? item.total.price : item.price), (item.total ? item.total.percent : item.percent) + '%']);
+        if (item.list) {
+            item.list.forEach((subItem) => {
+                worksheetData.push(['  ' + subItem.name, formatCurrency(subItem.total ? subItem.total.price : subItem.price), (subItem.total ? subItem.total.percent : subItem.percent) + '%']);
+                if (subItem.list) {
+                    subItem.list.forEach((grandSubItem) => {
+                        worksheetData.push(['    ' + grandSubItem.name, formatCurrency(grandSubItem.price), grandSubItem.percent + '%']);
+                    });
+                }
+            });
+        }
+    });
 
-    const filename = `profit_loss_report_${now.toISOString().split('T')[0]}.xlsx`;
-    XLSX.writeFile(wb, filename);
+    worksheetData.push(['Total Ventas', formatCurrency(props.filteredData[0]?.total?.price || 0), props.filteredData[0]?.total?.percent + '%']);
+    worksheetData.push(['Total Costo de Venta', formatCurrency(props.filteredData[1]?.total?.price || 0), props.filteredData[1]?.total?.percent + '%']);
+    worksheetData.push(['Total Mano de Obra', formatCurrency(props.filteredData[2]?.total?.price || 0), props.filteredData[2]?.total?.percent + '%']);
+    worksheetData.push(['Total Gastos Fijos o Variables', formatCurrency(props.filteredData[3]?.total?.price || 0), props.filteredData[3]?.total?.percent + '%']);
+    worksheetData.push(['Total Gastos Fijos', formatCurrency(props.filteredData[4]?.total?.price || 0), props.filteredData[4]?.total?.percent + '%']);
+    worksheetData.push(['Costo de Producción', formatCurrency(props.filteredData[3]?.production_cost?.price || 0), props.filteredData[3]?.production_cost?.percent + '%']);
+
+    const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'ProfitLoss');
+
+    XLSX.writeFile(workbook, 'profit_loss_report.xlsx');
+    emit('export-to-excel');
 };
 </script>

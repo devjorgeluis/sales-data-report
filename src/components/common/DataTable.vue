@@ -15,7 +15,7 @@
             </thead>
             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
                 <tr v-for="(item, index) in paginatedData" :key="index"
-                    class="border-t border-gray-100 dark:border-gray-800">
+                    class="border-t border-gray-100 dark:border-gray-800 even:bg-gray-200 odd:bg-white dark:even:bg-gray-500 dark:odd:bg-gray-700">
                     <td v-for="column in columns" :key="column.key" class="px-5 py-4 sm:px-6" :class="{
                         'text-right': column.align === 'right',
                         'text-center': column.align === 'center'

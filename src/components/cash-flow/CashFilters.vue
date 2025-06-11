@@ -4,11 +4,11 @@
             <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Cash Flow</h2>
             <div class="flex flex-wrap gap-3">
                 <button @click="exportToPDF"
-                    class="px-4 py-2 bg-blue-500 text-sm text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    class="px-4 py-2 bg-yellow-400 text-sm text-black rounded-lg hover:bg-yellow-500 transition-colors">
                     Export to PDF
                 </button>
                 <button @click="exportToExcel"
-                    class="px-4 py-2 bg-green-500 text-sm text-white rounded-lg hover:bg-green-700 transition-colors">
+                    class="px-4 py-2 bg-yellow-400 text-sm text-black rounded-lg hover:bg-yellow-500 transition-colors">
                     Export to Excel
                 </button>
             </div>
