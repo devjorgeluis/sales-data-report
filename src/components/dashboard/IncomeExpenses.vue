@@ -29,18 +29,18 @@
                 </thead>
                 <tbody>
                     <tr v-for="(item, index) in list" :key="index"
-                        class="border-t border-gray-200 dark:border-gray-800">
+                        class="border-t border-gray-200 dark:border-gray-800 even:bg-gray-100 odd:bg-white dark:even:bg-gray-500 dark:odd:bg-gray-700">
                         <td class="py-2 px-3 whitespace-nowrap">
-                            <p class="text-gray-700 text-theme-sm dark:text-gray-600">{{ item.category }}</p>
+                            <p class="text-gray-700 text-theme-sm dark:text-gray-400">{{ item.category }}</p>
                         </td>
                         <td class="py-2 px-3 whitespace-nowrap">
-                            <p class="text-gray-700 text-theme-sm dark:text-gray-600">{{ item.income }}</p>
+                            <p class="text-gray-700 text-theme-sm dark:text-gray-400">{{ item.income }}</p>
                         </td>
                         <td class="py-2 px-3 whitespace-nowrap">
-                            <p class="text-gray-700 text-theme-sm dark:text-gray-600">{{ item.expense }}</p>
+                            <p class="text-gray-700 text-theme-sm dark:text-gray-400">{{ item.expense }}</p>
                         </td>
                         <td class="py-2 px-3 whitespace-nowrap">
-                            <p class="text-gray-700 text-theme-sm dark:text-gray-600">{{ item.balance }}</p>
+                            <p class="text-gray-700 text-theme-sm dark:text-gray-400">{{ item.balance }}</p>
                         </td>
                     </tr>
                 </tbody>

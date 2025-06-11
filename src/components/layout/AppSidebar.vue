@@ -211,12 +211,10 @@ import { useSidebar } from "@/composables/useSidebar";
 
 const route = useRoute();
 
-const { isExpanded, isMobileOpen, isHovered, openSubmenu, toggleSidebar, toggleMobileSidebar } = useSidebar();
+const { isExpanded, isMobileOpen, isHovered, openSubmenu, toggleMobileSidebar } = useSidebar();
 
 const handleToggle = () => {
-  if (window.innerWidth >= 1024) {
-    toggleSidebar()
-  } else {
+  if (window.innerWidth < 1024) {
     toggleMobileSidebar()
   }
 }
