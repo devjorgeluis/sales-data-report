@@ -69,15 +69,15 @@ watch(localFilters, (newFilters) => {
 }, { deep: true });
 
 const formatCurrency = (value) => {
-    return value !== 0 ? "$" + Number(value).toLocaleString('en-US', {
+    return value !== 0 ? Number(value).toLocaleString('en-US', {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
     }) : "-";
 };
 
 const capitalizeFirstLetter = (str) => {
-  return str.replace(/^./, (char) => char.toUpperCase());
-}
+    return str.replace(/^./, (char) => char.toUpperCase());
+};
 
 const exportToPDF = () => {
     const doc = new jsPDF();
@@ -86,53 +86,114 @@ const exportToPDF = () => {
     if (props.filteredData && props.filteredData.length) {
         props.filteredData.forEach((item) => {
             tableData.push([
-                capitalizeFirstLetter(item.name),
-                formatCurrency(item.total?.price ?? item.price ?? 0),
-                (item.total?.percent ?? item.percent ?? 0) + '%'
+                { content: capitalizeFirstLetter(item.name) + ":", styles: { fontStyle: 'bold', halign: 'left', fillColor: [255, 255, 255], textColor: [0, 0, 0] } },
+                '', '', ''
             ]);
 
-            if (item.list?.length) {
+            if (item.list && item.list.length) {
                 item.list.forEach((subItem) => {
-                    tableData.push([
-                        `    ${capitalizeFirstLetter(subItem.name)}`,
-                        formatCurrency(subItem.total?.price ?? subItem.price ?? 0),
-                        (subItem.total?.percent ?? subItem.percent ?? 0) + '%'
-                    ]);
+                    const isSubItemWithList = subItem.list && subItem.list.length > 0;
+                    const subItemRow = [
+                        { content: `    ${capitalizeFirstLetter(subItem.name)}${isSubItemWithList ? " - " : ""}`, styles: { halign: 'left', fillColor: isSubItemWithList ? [255, 255, 255] : [254, 249, 194], textColor: [0, 0, 0] } },
+                        { content: '$', styles: { halign: 'center', fillColor: isSubItemWithList ? [255, 255, 255] : [254, 249, 194], textColor: [0, 0, 0] } },
+                        { content: formatCurrency(subItem.total?.price ?? subItem.price ?? 0), styles: { halign: 'right', fillColor: isSubItemWithList ? [255, 255, 255] : [254, 249, 194], textColor: [0, 0, 0] } },
+                        { content: (subItem.total?.percent ?? subItem.percent ?? 0) + '%', styles: { halign: 'right', fillColor: isSubItemWithList ? [255, 255, 255] : [254, 249, 194], textColor: [0, 0, 0] } }
+                    ];
+                    tableData.push(subItemRow);
 
-                    if (subItem.list?.length) {
+                    if (subItem.list && subItem.list.length) {
                         subItem.list.forEach((grandSubItem) => {
                             tableData.push([
-                                `        ${capitalizeFirstLetter(grandSubItem.name)}`,
-                                formatCurrency(grandSubItem.price ?? 0),
-                                (grandSubItem.percent ?? 0) + '%'
+                                { content: `        ${capitalizeFirstLetter(grandSubItem.name)}`, styles: { halign: 'left', fillColor: [254, 249, 194], textColor: [0, 0, 0] } },
+                                { content: '$', styles: { halign: 'center', fillColor: [254, 249, 194], textColor: [0, 0, 0] } },
+                                { content: formatCurrency(grandSubItem.price ?? 0), styles: { halign: 'right', fillColor: [254, 249, 194], textColor: [0, 0, 0] } },
+                                { content: (grandSubItem.percent ?? 0) + '%', styles: { halign: 'right', fillColor: [254, 249, 194], textColor: [0, 0, 0] } }
                             ]);
                         });
                     }
+
+                    if (subItem.total) {
+                        tableData.push([
+                            { content: `Total ${subItem.name}`, styles: { halign: 'center', fillColor: [128, 128, 128], textColor: [255, 255, 0] } },
+                            { content: '$', styles: { halign: 'center', fillColor: [128, 128, 128], textColor: [255, 255, 0] } },
+                            { content: formatCurrency(subItem.total.price), styles: { halign: 'right', fillColor: [128, 128, 128], textColor: [255, 255, 0] } },
+                            { content: subItem.total.percent + '%', styles: { halign: 'right', fillColor: [128, 128, 128], textColor: [255, 255, 0] } }
+                        ]);
+                    }
                 });
             }
+
+            tableData.push([
+                { content: `Total ${item.name}`, styles: { halign: 'left', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } },
+                { content: '$', styles: { halign: 'center', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } },
+                { content: formatCurrency(item.total?.price ?? item.price ?? 0), styles: { halign: 'right', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } },
+                { content: (item.total?.percent ?? item.percent ?? 0) + '%', styles: { halign: 'right', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } }
+            ]);
+
+            if (item.production_cost) {
+                tableData.push([
+                    { content: 'Costo de Produccion', styles: { halign: 'left', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } },
+                    { content: '$', styles: { halign: 'center', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } },
+                    { content: formatCurrency(item.production_cost?.price ?? '-'), styles: { halign: 'right', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } },
+                    { content: (item.production_cost?.percent ?? 0) + '%', styles: { halign: 'right', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } }
+                ]);
+            }
+
+            tableData.push([{ content: '', colSpan: 4, styles: { cellWidth: 'auto', fillColor: [255, 255, 255] } }]); // Spacer row
         });
+
+        if (props.totalData) {
+            tableData.push([
+                { content: 'Ganancia Operativa Bruta', styles: { halign: 'left', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } },
+                { content: '$', styles: { halign: 'center', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } },
+                { content: formatCurrency(props.totalData.profit.price), styles: { halign: 'right', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } },
+                { content: props.totalData.profit.percent + '%', styles: { halign: 'right', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } }
+            ]);
+            tableData.push([
+                { content: 'Impuestos SAT', styles: { halign: 'left', fillColor: [254, 249, 194], textColor: [0, 0, 0] } },
+                { content: '$', styles: { halign: 'center', fillColor: [254, 249, 194], textColor: [0, 0, 0] } },
+                { content: formatCurrency(props.totalData.tax.price), styles: { halign: 'right', fillColor: [254, 249, 194], textColor: [0, 0, 0] } },
+                { content: props.totalData.tax.percent + '%', styles: { halign: 'right', fillColor: [254, 249, 194], textColor: [0, 0, 0] } }
+            ]);
+            tableData.push([
+                { content: 'Préstamos Bancarios', styles: { halign: 'left', fillColor: [254, 249, 194], textColor: [0, 0, 0] } },
+                { content: '$', styles: { halign: 'center', fillColor: [254, 249, 194], textColor: [0, 0, 0] } },
+                { content: formatCurrency(props.totalData.bank_loans.price), styles: { halign: 'right', fillColor: [254, 249, 194], textColor: [0, 0, 0] } },
+                { content: props.totalData.bank_loans.percent + '%', styles: { halign: 'right', fillColor: [254, 249, 194], textColor: [0, 0, 0] } }
+            ]);
+            tableData.push([
+                { content: 'Intereses', styles: { halign: 'left', fillColor: [254, 249, 194], textColor: [0, 0, 0] } },
+                { content: '$', styles: { halign: 'center', fillColor: [254, 249, 194], textColor: [0, 0, 0] } },
+                { content: formatCurrency(props.totalData.interest.price), styles: { halign: 'right', fillColor: [254, 249, 194], textColor: [0, 0, 0] } },
+                { content: props.totalData.interest.percent + '%', styles: { halign: 'right', fillColor: [254, 249, 194], textColor: [0, 0, 0] } }
+            ]);
+            tableData.push([
+                { content: 'Ganancia Bruta antes de Impuestos', styles: { halign: 'left', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } },
+                { content: '$', styles: { halign: 'center', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } },
+                { content: formatCurrency(props.totalData.profit_without_tax.price), styles: { halign: 'right', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } },
+                { content: props.totalData.profit_without_tax.percent + '%', styles: { halign: 'right', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } }
+            ]);
+            tableData.push([
+                { content: 'TOTAL GASTOS', styles: { halign: 'left', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } },
+                { content: '$', styles: { halign: 'center', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } },
+                { content: formatCurrency(props.totalData.expense.price), styles: { halign: 'right', fillColor: [0, 0, 0], textColor: [255, 255, 0], fontStyle: 'bold' } },
+                ''
+            ]);
+        }
     } else {
-        tableData.push(['No data', '-', '-']);
+        tableData.push(['No data', '-', '-', '-']);
     }
 
     autoTable(doc, {
         body: tableData,
         startY: 10,
-        theme: 'striped',
-        styles: { 
-            halign: 'right', 
-            cellPadding: 2,
-            fillColor: [0, 0, 0],
-            textColor: [255, 255, 255]
-        },
+        theme: 'plain',
+        styles: { cellPadding: 2 },
         columnStyles: {
-            0: { halign: 'left', cellWidth: 100 },
-            1: { halign: 'right', cellWidth: 50 },
-            2: { halign: 'right', cellWidth: 30 }
-        },
-        alternateRowStyles: {
-            fillColor: [254, 249, 194],
-            textColor: [0, 0, 0]
+            0: { cellWidth: 100 },
+            1: { cellWidth: 10 },
+            2: { cellWidth: 40 },
+            3: { cellWidth: 30 }
         }
     });
 
@@ -162,7 +223,7 @@ const exportToExcel = () => {
     worksheetData.push(['Préstamos Bancarios', formatCurrency(props.totalData.bank_loans.price), props.totalData.bank_loans.percent + '%']);
     worksheetData.push(['Intereses', formatCurrency(props.totalData.interest.price), props.totalData.interest.percent + '%']);
     worksheetData.push(['Ganancia Bruta antes de Impuestos', formatCurrency(props.totalData.profit_without_tax.price), props.totalData.profit_without_tax.percent + '%']);
-    worksheetData.push(['TOTAL GASTOS', formatCurrency(props.totalData.expense.price)]);
+    worksheetData.push(['TOTAL GASTOS', formatCurrency(props.totalData.expense.price), " "]);
 
     const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
     const workbook = XLSX.utils.book_new();
