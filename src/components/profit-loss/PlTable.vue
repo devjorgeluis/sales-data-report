@@ -76,10 +76,60 @@
                             </td>
                         </tr>
                     </template>
+                    <template v-if="totalData">
+                        <tr class="bg-black dark:bg-gray-700 mt-3">
+                            <td class="px-2 py-1 font-bold text-yellow-300 dark:text-yellow-500 capitalize">Ganancia Operativa Bruta</td>
+                            <td class="px-2 py-1 font-bold text-yellow-300 dark:text-yellow-500 text-center">$</td>
+                            <td class="px-2 py-1 font-bold text-yellow-300 dark:text-yellow-500 text-right">
+                                {{ formatCurrency(totalData.profit.price) }}
+                            </td>
+                            <td class="px-2 py-1 font-bold text-yellow-300 dark:text-yellow-500 text-right">
+                                {{ totalData.profit.percent }}%
+                            </td>
+                        </tr>
+                        <tr class="bg-yellow-100 dark:bg-yellow-200">
+                            <td class="px-2 capitalize">Impuestos SAT</td>
+                            <td class="px-2 capitalize text-center">$</td>
+                            <td class="px-2 text-right font-bold">{{ formatCurrency(totalData.tax.price) }}</td>
+                            <td class="px-2 text-right font-bold">{{ totalData.tax.percent }}%</td>
+                        </tr>
+                        <tr class="bg-yellow-100 dark:bg-yellow-200">
+                            <td class="px-2 capitalize">Préstamos Bancarios</td>
+                            <td class="px-2 capitalize text-center">$</td>
+                            <td class="px-2 text-right font-bold">{{ formatCurrency(totalData.bank_loans.price) }}</td>
+                            <td class="px-2 text-right font-bold">{{ totalData.bank_loans.percent }}%</td>
+                        </tr>
+                        <tr class="bg-yellow-100 dark:bg-yellow-200">
+                            <td class="px-2 capitalize">Intereses</td>
+                            <td class="px-2 capitalize text-center">$</td>
+                            <td class="px-2 text-right font-bold">{{ formatCurrency(totalData.interest.price) }}</td>
+                            <td class="px-2 text-right font-bold">{{ totalData.interest.percent }}%</td>
+                        </tr>
+                        <tr class="bg-black dark:bg-gray-700">
+                            <td class="px-2 py-1 font-bold text-yellow-300 dark:text-yellow-500 capitalize">Ganancia Bruta antes de Impuestos</td>
+                            <td class="px-2 py-1 font-bold text-yellow-300 dark:text-yellow-500 text-center">$</td>
+                            <td class="px-2 py-1 font-bold text-yellow-300 dark:text-yellow-500 text-right">
+                                {{ formatCurrency(totalData.profit_without_tax.price) }}
+                            </td>
+                            <td class="px-2 py-1 font-bold text-yellow-300 dark:text-yellow-500 text-right">
+                                {{ totalData.profit_without_tax.percent }}%
+                            </td>
+                        </tr>
+                        <tr class="bg-black dark:bg-gray-700">
+                            <td class="px-2 py-1 font-bold text-yellow-300 dark:text-yellow-500 capitalize">TOTAL GASTOS</td>
+                            <td class="px-2 py-1 font-bold text-yellow-300 dark:text-yellow-500 text-center">$</td>
+                            <td class="px-2 py-1 font-bold text-yellow-300 dark:text-yellow-500 text-right">
+                                {{ formatCurrency(totalData.expense.price) }}
+                            </td>
+                            <td class="px-2 py-1 font-bold text-yellow-300 dark:text-yellow-500 text-right">
+                                
+                            </td>
+                        </tr>
+                      </template>
                 </template>
                 <template v-else>
                     <tr>
-                        <td colspan="3" class="px-2 text-center">No data available</td>
+                        <td colspan="4" class="px-2 text-center">No data available</td>
                     </tr>
                 </template>
             </tbody>
@@ -88,9 +138,9 @@
 </template>
 
 <script setup>
-
 const props = defineProps({
-    filteredData: Array
+    filteredData: Array,
+    totalData: Object
 });
 
 const formatCurrency = (value) => {
@@ -99,5 +149,4 @@ const formatCurrency = (value) => {
         maximumFractionDigits: 2
     }) : "-";
 }
-
 </script>

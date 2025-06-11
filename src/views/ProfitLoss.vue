@@ -5,7 +5,7 @@
                 <pl-filters :filters="filters" :filtered-data="filteredData" @update:filters="filters = $event"
                     @export-to-pdf="exportToPDF" @export-to-excel="exportToExcel" />
 
-                <pl-table :filtered-data="filteredData" />
+                <pl-table :filtered-data="filteredData" :total-data="profitLossData.total" />
             </ComponentCard>
         </div>
     </admin-layout>
@@ -39,27 +39,15 @@ const filteredData = computed(() => {
                         percent: subItem.percent || (subItem.total ? subItem.total.percent : 0),
                         total: subItem.total,
                         list: subItem.list?.filter(grandSubItem => {
-                            // Assume date is in the format "YYYY/MM/DD-YYYY/MM/DD" within the name or a separate date field
-                            let startDate, endDate;
-                            if (grandSubItem.name.includes('-')) {
-                                [startDate, endDate] = grandSubItem.name.split('-').map(dateStr => new Date(dateStr.trim()));
-                            } else if (grandSubItem.date) {
-                                // If a separate date field exists, use it
-                                startDate = new Date(grandSubItem.date);
-                                endDate = new Date(grandSubItem.date);
-                            } else {
-                                // Default to current date if no date info is found
-                                startDate = new Date();
-                                endDate = new Date();
-                            }
-
+                            let startDate = new Date(grandSubItem.date || '2025-06-01'); // Default date if not present
                             const filterStart = new Date(filters.value.startDate);
                             const filterEnd = new Date(filters.value.endDate);
-                            return startDate >= filterStart && endDate <= filterEnd;
+                            return startDate >= filterStart && startDate <= filterEnd;
                         }).map(grandSubItem => ({
                             name: grandSubItem.name,
                             price: grandSubItem.price,
-                            percent: grandSubItem.percent
+                            percent: grandSubItem.percent,
+                            date: grandSubItem.date // Preserve date for filtering
                         }))
                     })).filter(subItem => subItem.list?.length > 0 || !subItem.list)
                 };
@@ -68,7 +56,8 @@ const filteredData = computed(() => {
                 name: item.name,
                 price: item.total ? item.total.price : 0,
                 percent: item.total ? item.total.percent : 0,
-                total: item.total
+                total: item.total,
+                date: item.date // Preserve date for top-level items if needed
             };
         }).filter(item => item.list?.length > 0 || !item.list);
     };
@@ -78,4 +67,8 @@ const filteredData = computed(() => {
 
 const exportToPDF = () => console.log("Exporting to PDF...");
 const exportToExcel = () => console.log("Exporting to Excel...");
+
+const handlePageChange = (page) => {
+    console.log("Page changed to:", page);
+};
 </script>
