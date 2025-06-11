@@ -89,15 +89,7 @@ const formatCurrency = (value) => {
 
 const exportToPDF = () => {
     const doc = new jsPDF()
-
-    const formattedDate = now.toLocaleString('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: true,
-        timeZone: 'America/Los_Angeles'
-    }).replace(',', '')
     doc.setFontSize(16)
-    doc.text(`Cash Flow Report - ${formattedDate} PDT`, 10, 10)
 
     const headers = ['Date', 'Type', 'Category', 'Description', 'Income', 'Expense', 'Balance']
     const data = props.filteredCashFlows.map(item => [
@@ -113,10 +105,20 @@ const exportToPDF = () => {
     autoTable(doc, {
         head: [headers],
         body: data,
-        startY: 20,
-        styles: { fontSize: 8 },
+        startY: 10,
+        theme: 'striped',
+        styles: { 
+            halign: 'left', 
+            cellPadding: 2,
+            fillColor: [0, 0, 0],
+            textColor: [255, 255, 255],
+            fontSize: 8
+        },
+        alternateRowStyles: {
+            fillColor: [254, 249, 194],
+            textColor: [0, 0, 0]
+        },
         headStyles: { fillColor: [0, 102, 204] },
-        margin: { top: 10 }
     })
 
     const filename = `cash_flow_report_${now.toISOString().split('T')[0]}.pdf`

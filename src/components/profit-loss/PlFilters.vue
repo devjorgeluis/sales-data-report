@@ -85,31 +85,31 @@ const exportToPDF = () => {
 
     if (props.filteredData && props.filteredData.length) {
         props.filteredData.forEach((item) => {
-        tableData.push([
-            capitalizeFirstLetter(item.name),
-            formatCurrency(item.total?.price ?? item.price ?? 0),
-            (item.total?.percent ?? item.percent ?? 0) + '%'
-        ]);
-
-        if (item.list?.length) {
-            item.list.forEach((subItem) => {
             tableData.push([
-                `    ${capitalizeFirstLetter(subItem.name)}`,
-                formatCurrency(subItem.total?.price ?? subItem.price ?? 0),
-                (subItem.total?.percent ?? subItem.percent ?? 0) + '%'
+                capitalizeFirstLetter(item.name),
+                formatCurrency(item.total?.price ?? item.price ?? 0),
+                (item.total?.percent ?? item.percent ?? 0) + '%'
             ]);
 
-            if (subItem.list?.length) {
-                subItem.list.forEach((grandSubItem) => {
-                tableData.push([
-                    `        ${capitalizeFirstLetter(grandSubItem.name)}`,
-                        formatCurrency(grandSubItem.price ?? 0),
-                        (grandSubItem.percent ?? 0) + '%'
+            if (item.list?.length) {
+                item.list.forEach((subItem) => {
+                    tableData.push([
+                        `    ${capitalizeFirstLetter(subItem.name)}`,
+                        formatCurrency(subItem.total?.price ?? subItem.price ?? 0),
+                        (subItem.total?.percent ?? subItem.percent ?? 0) + '%'
                     ]);
+
+                    if (subItem.list?.length) {
+                        subItem.list.forEach((grandSubItem) => {
+                            tableData.push([
+                                `        ${capitalizeFirstLetter(grandSubItem.name)}`,
+                                formatCurrency(grandSubItem.price ?? 0),
+                                (grandSubItem.percent ?? 0) + '%'
+                            ]);
+                        });
+                    }
                 });
             }
-            });
-        }
         });
     } else {
         tableData.push(['No data', '-', '-']);
@@ -119,11 +119,20 @@ const exportToPDF = () => {
         body: tableData,
         startY: 10,
         theme: 'striped',
-        styles: { halign: 'right', cellPadding: 2 },
+        styles: { 
+            halign: 'right', 
+            cellPadding: 2,
+            fillColor: [0, 0, 0],
+            textColor: [255, 255, 255]
+        },
         columnStyles: {
             0: { halign: 'left', cellWidth: 100 },
             1: { halign: 'right', cellWidth: 50 },
             2: { halign: 'right', cellWidth: 30 }
+        },
+        alternateRowStyles: {
+            fillColor: [254, 249, 194],
+            textColor: [0, 0, 0]
         }
     });
 
