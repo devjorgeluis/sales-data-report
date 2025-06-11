@@ -1,5 +1,5 @@
 <template>
-    <div class="p-5 border-b border-gray-200 dark:border-gray-700">
+    <div class="p-3 sm:p-5 border-b border-gray-200 dark:border-gray-700">
         <div class="flex flex-wrap gap-4 items-center justify-between mb-4">
             <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Cash Flow</h2>
             <div class="flex flex-wrap gap-3">

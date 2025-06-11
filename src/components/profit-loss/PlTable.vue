@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-full overflow-x-auto custom-scrollbar p-5">
+    <div class="p-3 sm:p-5 max-w-full overflow-x-auto custom-scrollbar">
         <table class="w-full">
             <tbody>
                 <template v-if="filteredData && filteredData.length">

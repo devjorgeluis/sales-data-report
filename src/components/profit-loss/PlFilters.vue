@@ -1,5 +1,5 @@
 <template>
-    <div class="p-5 border-b border-gray-200 dark:border-gray-700">
+    <div class="p-3 sm:p-5 border-b border-gray-200 dark:border-gray-700">
         <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
             <div class="flex flex-col gap-2 w-[300px]">
                 <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Date Range</h2>
@@ -55,9 +55,6 @@ onMounted(() => {
                 localFilters.value.startDate = selectedDates[0].toISOString().split('T')[0];
                 localFilters.value.endDate = selectedDates[1].toISOString().split('T')[0];
                 emit('update:filters', { ...localFilters.value });
-
-                console.log(selectedDates);
-                
             }
         },
     });
@@ -77,31 +74,40 @@ const formatCurrency = (value) => {
 const exportToPDF = () => {
     const doc = new jsPDF();
     const tableData = [];
-    const tableHeaders = ['Concepto', 'Importe ($)', '%'];
 
-    props.filteredData.forEach((item) => {
-        tableData.push([item.name, formatCurrency(item.total ? item.total.price : item.price), (item.total ? item.total.percent : item.percent) + '%']);
-        if (item.list) {
+    if (props.filteredData && props.filteredData.length) {
+        props.filteredData.forEach((item) => {
+        tableData.push([
+            item.name,
+            formatCurrency(item.total?.price ?? item.price ?? 0),
+            (item.total?.percent ?? item.percent ?? 0) + '%'
+        ]);
+
+        if (item.list?.length) {
             item.list.forEach((subItem) => {
-                tableData.push(['  ' + subItem.name, formatCurrency(subItem.total ? subItem.total.price : subItem.total.price), (subItem.total ? subItem.total.percent : subItem.percent) + '%']);
-                if (subItem.list) {
-                    subItem.list.forEach((grandSubItem) => {
-                        tableData.push(['    ' + grandSubItem.name, formatCurrency(grandSubItem.price), grandSubItem.percent + '%']);
-                    });
-                }
+            tableData.push([
+                `  ${subItem.name}`,
+                formatCurrency(subItem.total?.price ?? subItem.price ?? 0),
+                (subItem.total?.percent ?? subItem.percent ?? 0) + '%'
+            ]);
+
+            if (subItem.list?.length) {
+                subItem.list.forEach((grandSubItem) => {
+                tableData.push([
+                    `${grandSubItem.name}`,
+                        formatCurrency(grandSubItem.price ?? 0),
+                        (grandSubItem.percent ?? 0) + '%'
+                    ]);
+                });
+            }
             });
         }
-    });
-
-    tableData.push(['Total Ventas', formatCurrency(props.filteredData[0]?.total?.price || 0), props.filteredData[0]?.total?.percent + '%']);
-    tableData.push(['Total Costo de Venta', formatCurrency(props.filteredData[1]?.total?.price || 0), props.filteredData[1]?.total?.percent + '%']);
-    tableData.push(['Total Mano de Obra', formatCurrency(props.filteredData[2]?.total?.price || 0), props.filteredData[2]?.total?.percent + '%']);
-    tableData.push(['Total Gastos Fijos o Variables', formatCurrency(props.filteredData[3]?.total?.price || 0), props.filteredData[3]?.total?.percent + '%']);
-    tableData.push(['Total Gastos Fijos', formatCurrency(props.filteredData[4]?.total?.price || 0), props.filteredData[4]?.total?.percent + '%']);
-    tableData.push(['Costo de Producción', formatCurrency(props.filteredData[3]?.production_cost?.price || 0), props.filteredData[3]?.production_cost?.percent + '%']);
+        });
+    } else {
+        tableData.push(['No data', '-', '-']);
+    }
 
     autoTable(doc, {
-        head: [tableHeaders],
         body: tableData,
         startY: 10,
         theme: 'striped',

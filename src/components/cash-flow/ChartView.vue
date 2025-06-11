@@ -1,5 +1,5 @@
 <template>
-    <div class="p-5">
+    <div class="p-3 sm:p-5">
         <div class="h-100">
             <apexchart v-if="chartOptions.series.length > 0" type="line" height="100%" :options="chartOptions"
                 :series="chartOptions.series" />

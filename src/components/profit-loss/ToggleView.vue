@@ -1,5 +1,5 @@
 <template>
-    <div class="p-5 border-b border-gray-200 dark:border-gray-700">
+    <div class="p-3 sm:p-5 border-b border-gray-200 dark:border-gray-700">
         <div class="flex gap-4">
             <button 
                 @click="updateViewMode('summary')" 
