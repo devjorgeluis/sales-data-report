@@ -135,26 +135,42 @@
                 {
                     "name": "admin",
                     "date": "2025-06-20",
-                    "price": 0,
-                    "percent": 0
+                    "price": 7000.00,
+                    "percent": 4.3
                 },
                 {
-                    "name": "cocina",
-                    "date": "2025-06-21",
-                    "price": 0,
-                    "percent": 0
-                },
-                {
-                    "name": "piso",
-                    "date": "2025-06-22",
-                    "price": 0,
-                    "percent": 0
-                },
-                {
-                    "name": "banquetes",
-                    "date": "2025-06-23",
-                    "price": 112965.90,
-                    "percent": 42.2
+                    "name": "empleados",
+                    "date": "2025-06-19",
+                    "total": {
+                        "price": 0.01,
+                        "percent": 0
+                    },
+                    "list": [
+                        {
+                            "name": "cocina",
+                            "date": "2025-06-21",
+                            "price": 0,
+                            "percent": 0
+                        },
+                        {
+                            "name": "piso",
+                            "date": "2025-06-22",
+                            "price": 0,
+                            "percent": 0
+                        },
+                        {
+                            "name": "banquetes",
+                            "date": "2025-06-23",
+                            "price": 112965.90,
+                            "percent": 42.2
+                        },
+                        {
+                            "name": "empleados",
+                            "date": "2025-06-24",
+                            "price": 34596.90,
+                            "percent": 21.2
+                        }
+                    ]
                 },
                 {
                     "name": "prestaiones empleados",

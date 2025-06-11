@@ -150,7 +150,8 @@ const exportToExcel = () => {
 
     worksheetData.push(['Ganancia Operativa Bruta', formatCurrency(props.totalData.profit.price), props.totalData.profit.percent + '%']);
     worksheetData.push(['Impuestos SAT', formatCurrency(props.totalData.tax.price), props.totalData.tax.percent + '%']);
-    worksheetData.push(['Préstamos Bancarios', formatCurrency(props.totalData.interest.price), props.totalData.interest.percent + '%']);
+    worksheetData.push(['Préstamos Bancarios', formatCurrency(props.totalData.bank_loans.price), props.totalData.bank_loans.percent + '%']);
+    worksheetData.push(['Intereses', formatCurrency(props.totalData.interest.price), props.totalData.interest.percent + '%']);
     worksheetData.push(['Ganancia Bruta antes de Impuestos', formatCurrency(props.totalData.profit_without_tax.price), props.totalData.profit_without_tax.percent + '%']);
     worksheetData.push(['TOTAL GASTOS', formatCurrency(props.totalData.expense.price)]);
 
