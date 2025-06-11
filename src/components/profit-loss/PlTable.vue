@@ -76,7 +76,7 @@
                             </td>
                         </tr>
 
-                        <tr class="font-bold bg-black dark:bg-gray-700 text-yellow-300 dark:text-yellow-500 capitalize">
+                        <tr class="font-bold bg-black dark:bg-gray-700 text-yellow-300 dark:text-yellow-500 capitalize" v-if="item.production_cost">
                             <td class="px-2 py-1">
                                 Costo de Produccion
                             </td>

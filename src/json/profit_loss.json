@@ -7,6 +7,10 @@
                 "price": 267482.56,
                 "percent": 100
             },
+            "production_cost": {
+                "price": 6510.70,
+                "percent": 50
+            },
             "list": [
                 {
                     "name": "alimento",
@@ -103,6 +107,10 @@
                 "price": 100933.79,
                 "percent": 37.7
             },
+            "production_cost": {
+                "price": 5310.47,
+                "percent": 40
+            },
             "list": [
                 {
                     "name": "alimento",
@@ -130,6 +138,10 @@
             "total": {
                 "price": 112965.91,
                 "percent": 42.2
+            },
+            "production_cost": {
+                "price": 7315.47,
+                "percent": 65
             },
             "list": [
                 {
