@@ -52,7 +52,7 @@ const datePicker = ref(null);
 onMounted(() => {
     flatpickr(datePicker.value, {
         mode: "range",
-        dateFormat: "Y/m/d",
+        dateFormat: "m/d/Y",
         defaultDate: [localFilters.value.startDate, localFilters.value.endDate],
         onChange: (selectedDates) => {
             if (selectedDates.length === 2) {

@@ -1,0 +1,94 @@
+{
+    "list": [
+        {
+            "date": "2025/05",
+            "summary": {
+                "initialFund": 600.00,
+                "deposits": 1019.72,
+                "withdrawals": 0.00,
+                "cashExpenses": 0.00,
+                "realCashEnd": 21538.80,
+                "cardSalesWithTips": 36531.00,
+                "cardTips": 4168.65,
+                "subtotal": 52387.07,
+                "iva": 8381.93,
+                "tablesServed": 29,
+                "guestsServed": 107,
+                "cancellations": 0,
+                "cancellationSales": 0.00,
+                "cancellationCost": 0.00,
+                "voids": 0,
+                "voidSales": 0.00,
+                "voidCost": 0.00,
+                "discountsCount": 0,
+                "discountAmount": 0.00,
+                "openAccounts": 0
+            },
+            "list": [
+                {
+                    "date": "Sat, May 31, 2025",
+                    "type": "Efectivo",
+                    "category": "Corte",
+                    "description": "Venta Efectivo",
+                    "income": 24238.00,
+                    "expense": 0,
+                    "balance": 24238.00
+                },
+                {
+                    "date": "Sat, May 31, 2025",
+                    "type": "Efectivo",
+                    "category": "Corte",
+                    "description": "Propinas Pagadas",
+                    "income": 0,
+                    "expense": 1058.40,
+                    "balance": 23179.60
+                },
+                {
+                    "date": "Sat, May 31, 2025",
+                    "type": "Efectivo",
+                    "category": "Corte",
+                    "description": "Retenciones Pagadas",
+                    "income": 0,
+                    "expense": 3.20,
+                    "balance": 23176.40
+                }
+            ]
+        },
+        {
+            "date": "2025/06",
+            "summary": {
+                "initialFund": 500.00,
+                "deposits": 500.00,
+                "withdrawals": 0.00,
+                "cashExpenses": 0.00,
+                "realCashEnd": 2000.00,
+                "cardSalesWithTips": 1000.00,
+                "cardTips": 100.00,
+                "subtotal": 2500.00,
+                "iva": 400.00,
+                "tablesServed": 5,
+                "guestsServed": 20,
+                "cancellations": 0,
+                "cancellationSales": 0.00,
+                "cancellationCost": 0.00,
+                "voids": 0,
+                "voidSales": 0.00,
+                "voidCost": 0.00,
+                "discountsCount": 0,
+                "discountAmount": 0.00,
+                "openAccounts": 0
+            },
+            "list": [
+                {
+                    "date": "Wed, Jun 11, 2025",
+                    "type": "Efectivo",
+                    "category": "Corte",
+                    "description": "Venta Efectivo",
+                    "income": 1500.00,
+                    "expense": 0,
+                    "balance": 1500.00
+                }
+            ]
+        }
+    ]
+}

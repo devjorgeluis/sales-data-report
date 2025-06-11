@@ -39,7 +39,7 @@ const filteredData = computed(() => {
                         percent: subItem.percent || (subItem.total ? subItem.total.percent : 0),
                         total: subItem.total,
                         list: subItem.list?.filter(grandSubItem => {
-                            let startDate = new Date(grandSubItem.date || '2025-06-01'); // Default date if not present
+                            let startDate = new Date(grandSubItem.date || '2025-06-01');
                             const filterStart = new Date(filters.value.startDate);
                             const filterEnd = new Date(filters.value.endDate);
                             return startDate >= filterStart && startDate <= filterEnd;
@@ -47,7 +47,7 @@ const filteredData = computed(() => {
                             name: grandSubItem.name,
                             price: grandSubItem.price,
                             percent: grandSubItem.percent,
-                            date: grandSubItem.date // Preserve date for filtering
+                            date: grandSubItem.date
                         }))
                     })).filter(subItem => subItem.list?.length > 0 || !subItem.list)
                 };
@@ -57,7 +57,7 @@ const filteredData = computed(() => {
                 price: item.total ? item.total.price : 0,
                 percent: item.total ? item.total.percent : 0,
                 total: item.total,
-                date: item.date // Preserve date for top-level items if needed
+                date: item.date
             };
         }).filter(item => item.list?.length > 0 || !item.list);
     };
@@ -67,8 +67,4 @@ const filteredData = computed(() => {
 
 const exportToPDF = () => console.log("Exporting to PDF...");
 const exportToExcel = () => console.log("Exporting to Excel...");
-
-const handlePageChange = (page) => {
-    console.log("Page changed to:", page);
-};
 </script>
