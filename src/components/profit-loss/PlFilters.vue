@@ -25,7 +25,8 @@
 import { ref, onMounted, watch } from 'vue';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
-import * as XLSX from 'xlsx';
+import ExcelJS from 'exceljs';
+import { saveAs } from 'file-saver';
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 
@@ -68,6 +69,7 @@ watch(localFilters, (newFilters) => {
     emit('update:filters', { ...newFilters });
 }, { deep: true });
 
+const now = new Date();
 const formatCurrency = (value) => {
     return value !== 0 ? Number(value).toLocaleString('en-US', {
         minimumFractionDigits: 2,
@@ -197,39 +199,77 @@ const exportToPDF = () => {
         }
     });
 
-    doc.save('profit_loss_report.pdf');
+    const filename = `profit_loss_report${now.toISOString().split('T')[0]}.pdf`;
+    doc.save(filename);
     emit('export-to-pdf');
 };
 
-const exportToExcel = () => {
-    const worksheetData = [];
+const exportToExcel = async () => {
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet('ProfitLoss');
 
     props.filteredData.forEach((item) => {
-        worksheetData.push([capitalizeFirstLetter(item.name), formatCurrency(item.total ? item.total.price : item.price), (item.total ? item.total.percent : item.percent) + '%']);
+        worksheet.addRow([
+            capitalizeFirstLetter(item.name),
+            formatCurrency(item.total ? item.total.price : item.price),
+            (item.total ? item.total.percent : item.percent) + '%'
+        ]);
         if (item.list) {
             item.list.forEach((subItem) => {
-                worksheetData.push(['  ' + capitalizeFirstLetter(subItem.name), formatCurrency(subItem.total ? subItem.total.price : subItem.price), (subItem.total ? subItem.total.percent : subItem.percent) + '%']);
+                worksheet.addRow([
+                    '  ' + capitalizeFirstLetter(subItem.name),
+                    formatCurrency(subItem.total ? subItem.total.price : subItem.price),
+                    (subItem.total ? subItem.total.percent : subItem.percent) + '%'
+                ]);
                 if (subItem.list) {
                     subItem.list.forEach((grandSubItem) => {
-                        worksheetData.push(['    ' + capitalizeFirstLetter(grandSubItem.name), formatCurrency(grandSubItem.price), grandSubItem.percent + '%']);
+                        worksheet.addRow([
+                            '    ' + capitalizeFirstLetter(grandSubItem.name),
+                            formatCurrency(grandSubItem.price),
+                            grandSubItem.percent + '%'
+                        ]);
                     });
                 }
             });
         }
     });
 
-    worksheetData.push(['Ganancia Operativa Bruta', formatCurrency(props.totalData.profit.price), props.totalData.profit.percent + '%']);
-    worksheetData.push(['Impuestos SAT', formatCurrency(props.totalData.tax.price), props.totalData.tax.percent + '%']);
-    worksheetData.push(['Préstamos Bancarios', formatCurrency(props.totalData.bank_loans.price), props.totalData.bank_loans.percent + '%']);
-    worksheetData.push(['Intereses', formatCurrency(props.totalData.interest.price), props.totalData.interest.percent + '%']);
-    worksheetData.push(['Ganancia Bruta antes de Impuestos', formatCurrency(props.totalData.profit_without_tax.price), props.totalData.profit_without_tax.percent + '%']);
-    worksheetData.push(['TOTAL GASTOS', formatCurrency(props.totalData.expense.price), " "]);
+    worksheet.addRow([
+        'Ganancia Operativa Bruta',
+        formatCurrency(props.totalData.profit.price),
+        props.totalData.profit.percent + '%'
+    ]);
+    worksheet.addRow([
+        'Impuestos SAT',
+        formatCurrency(props.totalData.tax.price),
+        props.totalData.tax.percent + '%'
+    ]);
+    worksheet.addRow([
+        'Préstamos Bancarios',
+        formatCurrency(props.totalData.bank_loans.price),
+        props.totalData.bank_loans.percent + '%'
+    ]);
+    worksheet.addRow([
+        'Intereses',
+        formatCurrency(props.totalData.interest.price),
+        props.totalData.interest.percent + '%'
+    ]);
+    worksheet.addRow([
+        'Ganancia Bruta antes de Impuestos',
+        formatCurrency(props.totalData.profit_without_tax.price),
+        props.totalData.profit_without_tax.percent + '%'
+    ]);
+    worksheet.addRow([
+        'TOTAL GASTOS',
+        formatCurrency(props.totalData.expense.price),
+        ' '
+    ]);
 
-    const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'ProfitLoss');
+    const filename = `profit_loss_report${now.toISOString().split('T')[0]}.xlsx`;
+    const buffer = await workbook.xlsx.writeBuffer();
+    const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    saveAs(blob, filename);
 
-    XLSX.writeFile(workbook, 'profit_loss_report.xlsx');
     emit('export-to-excel');
 };
 </script>

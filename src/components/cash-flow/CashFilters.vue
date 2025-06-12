@@ -46,7 +46,8 @@
 import { ref, watch } from 'vue'
 import jsPDF from 'jspdf'
 import autoTable from 'jspdf-autotable'
-import * as XLSX from 'xlsx'
+import ExcelJS from 'exceljs';
+import { saveAs } from 'file-saver';
 
 const props = defineProps({
     filters: {
@@ -113,27 +114,39 @@ const exportToPDF = () => {
         margin: { top: 10 }
     })
 
-    const filename = `cash_flow_report_${now.toISOString().split('T')[0]}.pdf`
-    doc.save(filename)
+    const filename = `cash_flow_report_${now.toISOString().split('T')[0]}.pdf`;
+    doc.save(filename);
 }
 
-const exportToExcel = () => {
-    const data = props.filteredCashFlows.map(item => ({
-        Date: item.date || '',
-        Type: item.type || '',
-        Category: item.category || '',
-        Description: item.description || '',
-        Income: item.income ? `$${formatCurrency(item.income)}` : '-',
-        Expense: item.expense ? `$${formatCurrency(item.expense)}` : '-',
-        Balance: item.balance ? `$${formatCurrency(item.balance)}` : '-'
-    }))
+const exportToExcel = async () => {
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet('Cash Flow');
 
-    const ws = XLSX.utils.json_to_sheet(data)
+    worksheet.columns = [
+        { header: 'Date', key: 'Date', width: 15 },
+        { header: 'Type', key: 'Type', width: 15 },
+        { header: 'Category', key: 'Category', width: 20 },
+        { header: 'Description', key: 'Description', width: 30 },
+        { header: 'Income', key: 'Income', width: 15 },
+        { header: 'Expense', key: 'Expense', width: 15 },
+        { header: 'Balance', key: 'Balance', width: 15 }
+    ];
 
-    const wb = XLSX.utils.book_new()
-    XLSX.utils.book_append_sheet(wb, ws, 'Cash Flow')
+    props.filteredCashFlows.forEach((item) => {
+        worksheet.addRow({
+            Date: item.date || '',
+            Type: item.type || '',
+            Category: item.category || '',
+            Description: item.description || '',
+            Income: item.income ? `$${formatCurrency(item.income)}` : '-',
+            Expense: item.expense ? `$${formatCurrency(item.expense)}` : '-',
+            Balance: item.balance ? `$${formatCurrency(item.balance)}` : '-'
+        });
+    });
 
-    const filename = `cash_flow_report_${now.toISOString().split('T')[0]}.xlsx`
-    XLSX.writeFile(wb, filename)
-}
+    const filename = `cash_flow_report_${now.toISOString().split('T')[0]}.xlsx`;
+    const buffer = await workbook.xlsx.writeBuffer();
+    const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    saveAs(blob, filename);
+};
 </script>
