@@ -13,10 +13,16 @@
 <script setup>
 import { computed } from 'vue'
 import VueApexCharts from 'vue3-apexcharts'
+import { parse, format } from 'date-fns';
+import { es } from 'date-fns/locale';
 
 const props = defineProps({
     filteredCashFlows: {
         type: Array,
+        required: true
+    },
+    filters: {
+        type: Object,
         required: true
     }
 })
@@ -28,27 +34,59 @@ defineOptions({
 })
 
 const aggregatedData = computed(() => {
-    const dataByMonth = {}
+    const dataByPeriod = {};
 
-    props.filteredCashFlows.forEach(item => {
-        const month = item.month || 'Unknown'
-        if (!dataByMonth[month]) {
-            dataByMonth[month] = { income: 0, expense: 0, balance: 0 }
-        }
-        dataByMonth[month].income += Number(item.income) || 0
-        dataByMonth[month].expense += Number(item.expense) || 0
-        dataByMonth[month].balance += Number(item.balance) || 0
-    })
+    if (props.filters.month) {
+        props.filteredCashFlows.forEach(item => {
+            if (item.date) {
+                try {
+                    const dateObj = parse(item.date, "EEEE d 'de' MMMM yyyy", new Date(), { locale: es });
+                    if (isNaN(dateObj.getTime())) {
+                        console.warn(`Invalid date format for item.date: ${item.date}`);
+                        return;
+                    }
+                    
+                    const itemMonth = format(dateObj, 'yyyy/MM');
+                    if (itemMonth === props.filters.month) {
+                        const day = format(dateObj, 'dd');
+                        if (!dataByPeriod[day]) {
+                            dataByPeriod[day] = { income: 0, expense: 0, balance: 0 };
+                        }
+                        dataByPeriod[day].income += Number(item.income) || 0;
+                        dataByPeriod[day].expense += Number(item.expense) || 0;
+                        dataByPeriod[day].balance += Number(item.balance) || 0;
+                    }
+                } catch (error) {
+                    console.error(`Error parsing date ${item.date}:`, error);
+                }
+            }
+        });
+    } else {
+        props.filteredCashFlows.forEach(item => {
+            const month = item.month || 'Unknown';
+            if (!dataByPeriod[month]) {
+                dataByPeriod[month] = { income: 0, expense: 0, balance: 0 };
+            }
+            dataByPeriod[month].income += Number(item.income) || 0;
+            dataByPeriod[month].expense += Number(item.expense) || 0;
+            dataByPeriod[month].balance += Number(item.balance) || 0;
+        });
+    }
 
-    return dataByMonth
-})
+    return dataByPeriod;
+});
 
 const chartOptions = computed(() => {
-    const months = Object.keys(aggregatedData.value).sort()
+    const periods = Object.keys(aggregatedData.value).sort((a, b) => {
+        if (props.filters.month) {
+            return parseInt(a) - parseInt(b);
+        }
+        return new Date(a) - new Date(b);
+    });    
 
-    const incomeData = months.map(month => aggregatedData.value[month].income)
-    const expenseData = months.map(month => aggregatedData.value[month].expense)
-    const balanceData = months.map(month => aggregatedData.value[month].balance)
+    const incomeData = periods.map(period => aggregatedData.value[period].income);
+    const expenseData = periods.map(period => aggregatedData.value[period].expense);
+    const balanceData = periods.map(period => aggregatedData.value[period].balance);
 
     return {
         series: [
@@ -85,9 +123,9 @@ const chartOptions = computed(() => {
             }
         },
         xaxis: {
-            categories: months,
+            categories: periods,
             title: {
-                text: 'Month',
+                text: props.filters.month ? 'Day' : 'Month',
                 style: {
                     color: '#9CA3AF',
                     fontSize: '12px'

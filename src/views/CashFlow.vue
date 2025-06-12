@@ -18,6 +18,7 @@
 
                 <chart-view
                     v-else-if="viewMode === 'chart'"
+                    :filters="filters"
                     :filtered-cash-flows="filteredCashFlows"
                 />
             </ComponentCard>
