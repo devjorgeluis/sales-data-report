@@ -6,8 +6,11 @@
                     <!-- Datepicker Section -->
                     <section class="mb-6 pb-6 border-b">
                         <h3 class="text-gray-800 dark:text-white text-lg lg:text-xl text-center font-semibold my-3">**CORTE DE CAJA X**</h3>
-                        <div class="flex justify-center mb-5">
+                        <div class="flex justify-center mb-5 relative w-fit mx-auto">
                             <input ref="datePicker" type="text" class="border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all duration-200" placeholder="Select date" />
+                            <div class="absolute top-2 right-2 z-10" v-if="isSelected" @click="clearDate">
+                                <CloseIcon />
+                            </div>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-600 dark:text-gray-300">
                             <p>FECHA Y HORA DE IMPRESION: {{ currentDateTime }}</p>
@@ -120,10 +123,13 @@ import ComponentCard from '@/components/common/ComponentCard.vue';
 import { ref, computed, onMounted } from 'vue';
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import { CloseIcon } from '@/icons';
 import cashoutData from '@/json/cashout_data.json';
 
+const flatpickrRef = ref(null);
 const datePicker = ref(null);
 const selectedDate = ref(null);
+const isSelected = ref(false);
 const openingTime = ref('Sat, May 31, 2025 1:00:01 PM');
 const shift = ref('1');
 const station = ref('CAJA 1');
@@ -140,18 +146,28 @@ const currentDateTime = ref(new Date().toLocaleString('en-US', {
 }).replace(',', ''));
 
 onMounted(() => {
-    flatpickr(datePicker.value, {
+    flatpickrRef.value = flatpickr(datePicker.value, {
         dateFormat: "m/d/Y",
         maxDate: new Date(),
         onChange: (selectedDates) => {
             if (selectedDates.length > 0) {
                 selectedDate.value = selectedDates[0].toDateString();
+                isSelected.value = true;
             } else {
                 selectedDate.value = null;
+                isSelected.value = false;
             }
         },
     });
 });
+
+const clearDate = () => {
+    if (flatpickrRef.value) {
+        flatpickrRef.value.clear();
+        selectedDate.value = null;
+        isSelected.value = false;
+    }
+};
 
 const filteredData = computed(() => {
     if (!selectedDate.value) return null;

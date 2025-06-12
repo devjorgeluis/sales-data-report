@@ -1,11 +1,14 @@
 <template>
     <div class="p-3 sm:p-5 border-b border-gray-200 dark:border-gray-700">
         <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-            <div class="flex flex-col gap-2 w-[300px]">
+            <div class="flex flex-col gap-2 w-[300px] relative">
                 <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Date Range</h2>
                 <input ref="datePicker" 
                     class="border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all duration-200" 
                     placeholder="Select date range" />
+                <div class="absolute top-11 right-2 z-10" v-if="isSelected" @click="clearDate">
+                    <CloseIcon />
+                </div>
             </div>
             <div class="flex flex-wrap gap-3">
                 <button @click="exportToPDF"
@@ -29,6 +32,7 @@ import ExcelJS from 'exceljs';
 import { saveAs } from 'file-saver';
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import { CloseIcon } from '@/icons';
 
 const props = defineProps({
     filters: {
@@ -48,10 +52,12 @@ const props = defineProps({
 const emit = defineEmits(['update:filters', 'export-to-pdf', 'export-to-excel']);
 
 const localFilters = ref({ ...props.filters });
+const flatpickrRef = ref(null);
 const datePicker = ref(null);
+const isSelected = ref(false);
 
 onMounted(() => {
-    flatpickr(datePicker.value, {
+    flatpickrRef.value = flatpickr(datePicker.value, {
         mode: "range",
         dateFormat: "m/d/Y",
         defaultDate: [localFilters.value.startDate, localFilters.value.endDate],
@@ -60,10 +66,23 @@ onMounted(() => {
                 localFilters.value.startDate = selectedDates[0].toISOString().split('T')[0];
                 localFilters.value.endDate = selectedDates[1].toISOString().split('T')[0];
                 emit('update:filters', { ...localFilters.value });
+                isSelected.value = true;
+            } else {
+                isSelected.value = false;
             }
         },
     });
 });
+
+const clearDate = () => {
+    if (flatpickrRef.value) {
+        flatpickrRef.value.clear();
+        localFilters.value.startDate = null;
+        localFilters.value.endDate = null;
+        emit('update:filters', { ...localFilters.value });
+        isSelected.value = false;
+    }
+};
 
 watch(localFilters, (newFilters) => {
     emit('update:filters', { ...newFilters });
